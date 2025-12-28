@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+    --primary: #6366f1;
+    --accent: #ec4899;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: #030303;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    background-clip: text; /* Fix for standard compatibility */
+    -webkit-text-fill-color: transparent;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.progress-bar {
+    height: 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    width: 0; /* Animated by JS */
+    transition: 2s width ease-in-out;
+}
+
+.btn-glow:hover {
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.4);
+    transform: translateY(-2px);
+}
+
+nav button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keeps it behind everything */
+    background: radial-gradient(circle at center, #0a0a0a 0%, #030303 100%);
+}
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.logo-slider {
+    display: flex;
+    width: calc(250px * 10);
+    animation: scroll 20s linear infinite;
+}
+.logo-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 35s linear infinite;
+    /* Removed animation-play-state: paused; so it keeps moving */
+}
+
+.logo-group {
+    padding-right: 2rem; /* The gap between the two identical sets */
+}
+
+.logo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 140px; /* Reduced width to bring them closer */
+    flex-shrink: 0;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: all 0.4s ease;
+}
+
+.logo-item:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: translateY(-5px); /* Gentle lift instead of scaling */
+}
+
+.logo-item img {
+    height: 45px; /* Slightly smaller for tighter fit */
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-item span {
+    font-size: 8px;
+    font-weight: 700;
+    color: #6366f1; /* Indigo color to match your theme */
+    margin-top: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.gradient-text {
+    background: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
+    -webkit-background-clip: text; /* For Chrome/Safari */
+    background-clip: text;         /* The standard property (fixes the warning) */
+    -webkit-text-fill-color: transparent;
+}
+
+
+#imageModal .grid img {
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+}
+
+#imageModal .grid img:hover {
+    transform: scale(1.02);
+    border-color: rgba(16, 185, 129, 0.5); /* Emerald glow on hover */
+}
