@@ -3,7 +3,7 @@
  */
 
 // 1. Precise Smooth Scroll Logic
-window.scrollToSection = function(sectionId) {
+window.scrollToSection = function (sectionId) {
     const element = document.getElementById(sectionId);
     if (element) {
         const navOffset = 100; // Space for fixed nav
@@ -20,7 +20,7 @@ window.scrollToSection = function(sectionId) {
 // 2. Intersection Observer / Reveal Logic
 const reveal = () => {
     const reveals = document.querySelectorAll(".reveal");
-    
+
     reveals.forEach(el => {
         const windowHeight = window.innerHeight;
         const elementTop = el.getBoundingClientRect().top;
@@ -28,7 +28,7 @@ const reveal = () => {
 
         if (elementTop < windowHeight - elementVisible) {
             el.classList.add("active");
-            
+
             // Trigger progress bar animations specifically
             const progressFills = el.querySelectorAll('.progress-fill');
             progressFills.forEach(fill => {
@@ -82,7 +82,8 @@ class Particle {
     }
 
     draw() {
-        ctx.fillStyle = 'rgba(99, 102, 241, 0.5)'; // Indigo color
+        ctx.fillStyle = 'rgba(148, 163, 184, 0.4)'; // Slate 400
+
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -98,7 +99,7 @@ function init() {
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
+
     for (let i = 0; i < particles.length; i++) {
         particles[i].update();
         particles[i].draw();
@@ -110,7 +111,8 @@ function animate() {
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < 150) {
-                ctx.strokeStyle = `rgba(99, 102, 241, ${1 - distance / 150})`;
+                ctx.strokeStyle = `rgba(148, 163, 184, ${0.4 * (1 - distance / 150)})`;
+
                 ctx.lineWidth = 0.5;
                 ctx.beginPath();
                 ctx.moveTo(particles[i].x, particles[i].y);
@@ -138,7 +140,7 @@ function closeModal() {
 }
 
 // Close modal if user clicks outside the images
-document.getElementById('imageModal').addEventListener('click', function(e) {
+document.getElementById('imageModal').addEventListener('click', function (e) {
     if (e.target === this) {
         closeModal();
     }
