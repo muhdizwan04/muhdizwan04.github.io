@@ -184,5 +184,50 @@ nav button {
     transform: scale(1.02);
     border-color: rgba(148, 163, 184, 0.5);
     /* Slate glow on hover */
+}
 
+/* New Custom Hover & Glow Utilities */
+.rencana-glow {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.rencana-glow:hover {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-4px);
+}
+
+.instrak-glow {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.instrak-glow:hover {
+    box-shadow: 0 0 40px rgba(14, 165, 233, 0.2);
+    border-color: rgba(14, 165, 233, 0.3);
+    transform: translateY(-4px);
+}
+
+.certificate-card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.certificate-card:hover {
+    box-shadow: 0 0 40px rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.25);
+    transform: translateY(-4px);
+}
+
+.tech-category-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.tech-category-card:hover {
+    background: rgba(15, 23, 42, 0.8);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.stat-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.stat-card:hover {
+    box-shadow: 0 10px 30px -10px rgba(148, 163, 184, 0.15);
+    transform: translateY(-2px);
+    border-color: rgba(148, 163, 184, 0.25);
 }

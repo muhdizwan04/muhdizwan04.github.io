@@ -127,7 +127,6 @@ function openModal() {
     const modal = document.getElementById('imageModal');
     modal.classList.remove('hidden');
     modal.classList.add('flex');
-    // Prevent scrolling while modal is open
     document.body.style.overflow = 'hidden';
 }
 
@@ -135,7 +134,6 @@ function closeModal() {
     const modal = document.getElementById('imageModal');
     modal.classList.remove('flex');
     modal.classList.add('hidden');
-    // Re-enable scrolling
     document.body.style.overflow = 'auto';
 }
 
@@ -143,6 +141,67 @@ function closeModal() {
 document.getElementById('imageModal').addEventListener('click', function (e) {
     if (e.target === this) {
         closeModal();
+    }
+});
+
+// 3. New Modals Logic
+window.openRencanaModal = function() {
+    const modal = document.getElementById('rencanaModal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+};
+
+window.closeRencanaModal = function() {
+    const modal = document.getElementById('rencanaModal');
+    modal.classList.remove('flex');
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+};
+
+document.getElementById('rencanaModal').addEventListener('click', function (e) {
+    if (e.target === this) {
+        closeRencanaModal();
+    }
+});
+
+window.openInstrakModal = function() {
+    const modal = document.getElementById('instrakModal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+};
+
+window.closeInstrakModal = function() {
+    const modal = document.getElementById('instrakModal');
+    modal.classList.remove('flex');
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+};
+
+document.getElementById('instrakModal').addEventListener('click', function (e) {
+    if (e.target === this) {
+        closeInstrakModal();
+    }
+});
+
+window.openCertModal = function() {
+    const modal = document.getElementById('certModal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+};
+
+window.closeCertModal = function() {
+    const modal = document.getElementById('certModal');
+    modal.classList.remove('flex');
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+};
+
+document.getElementById('certModal').addEventListener('click', function (e) {
+    if (e.target === this) {
+        closeCertModal();
     }
 });
 

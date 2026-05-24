@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css?v=1.2">
 
 
-    <script src="script.js?v=1.2" defer></script>
+    <script src="script.js?v=1.2" type="module" defer></script>
 
 
 </head>
@@ -20,330 +20,525 @@
 
     <nav class="fixed w-full z-50 p-6 flex justify-between items-center">
         <div class="liquid-glass px-6 py-3 rounded-2xl flex justify-between items-center w-full max-w-6xl mx-auto">
-
-            <div class="text-xl font-extrabold tracking-tighter cursor-pointer" onclick="scrollToSection('home')">
+            <div class="text-xl font-extrabold tracking-tighter cursor-pointer text-slate-100" onclick="scrollToSection('home')">
                 IZWAN<span class="text-slate-400 font-black">.</span>
             </div>
 
             <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-gray-400">
                 <button onclick="scrollToSection('home')" class="hover:text-white transition">Home</button>
                 <button onclick="scrollToSection('about')" class="hover:text-white transition">Story</button>
-                <button onclick="scrollToSection('projects')" class="hover:text-white transition">App</button>
-                <button onclick="scrollToSection('admin-web')" class="hover:text-white transition">Admin Panel</button>
-                <button onclick="scrollToSection('aizztech')" class="hover:text-white transition">AIZZTECH</button>
-                <button onclick="scrollToSection('ecommerserve')" class="hover:text-white transition">Ecommerce</button>
+                <button onclick="scrollToSection('projects')" class="hover:text-white transition">Projects</button>
+                <button onclick="scrollToSection('certifications')" class="hover:text-white transition">Certifications</button>
+                <button onclick="scrollToSection('highlights')" class="hover:text-white transition">Highlights</button>
                 <button onclick="scrollToSection('design')" class="hover:text-white transition">Jersey Biz</button>
                 <button onclick="scrollToSection('contact')" class="text-slate-300 font-bold">Hire Me</button>
-
             </div>
         </div>
     </nav>
 
+    <!-- HERO SECTION -->
     <section id="home" class="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
         <div class="absolute w-96 h-96 bg-slate-500/5 blur-[120px] -z-10 top-20 left-1/4"></div>
 
-
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center w-full">
-
             <div class="reveal active flex justify-center items-center relative">
-                <div class="absolute w-64 h-64 md:w-80 md:h-80 border border-slate-500/30 rounded-full animate-pulse">
-                </div>
-
-
-                <div
-                    class="relative w-64 h-64 md:w-96 md:h-96 glass rounded-[3rem] overflow-hidden border-2 border-slate-500/20 shadow-2xl transition-transform hover:scale-105 duration-700">
-
-                    <img src="myselft.jpeg" alt="Izwan Hamdan" class="w-full h-full object-cover object-top">
-
+                <div class="absolute w-64 h-64 md:w-80 md:h-80 border border-slate-500/30 rounded-full animate-pulse"></div>
+                <div class="relative w-64 h-64 md:w-96 md:h-96 glass rounded-[3rem] overflow-hidden border-2 border-slate-500/20 shadow-2xl transition-transform hover:scale-105 duration-700">
+                    <img src="myselft.jpeg" alt="Muhammad Izwan Bin Hamdan" class="w-full h-full object-cover object-top">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
             </div>
 
             <div class="reveal active text-center md:text-left">
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 tracking-tight leading-none">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-4 tracking-tight leading-none text-slate-100">
                     MUHAMMAD <br> <span class="text-slate-300">IZWAN</span>
                 </h1>
-
-                <h3 class="text-xl md:text-2xl font-light text-gray-400 max-w-xl leading-relaxed">
-                    Building Intelligent Systems & Creative Digital Designs<br>
+                <h3 class="text-base md:text-lg font-bold text-slate-400 mb-6 uppercase tracking-wider">
+                    AI Student • Mobile App Developer • Web Developer • Founder of AizzTech Solution
                 </h3>
+                <p class="text-gray-400 text-sm md:text-base leading-relaxed max-w-xl">
+                    I build practical digital products that combine artificial intelligence, mobile app development, web systems, UI/UX design, and business solutions. My work includes Rencana App, PPAS digital systems, Instrak Venture website redesign, AizzTech Solution, and sublimation jersey branding.
+                </p>
 
-
-                <div class="mt-12 flex flex-wrap justify-center md:justify-start gap-4">
-                    <button onclick="scrollToSection('projects')"
-                        class="btn-glow px-8 py-4 bg-slate-700 rounded-full font-bold transition-transform hover:scale-105 duration-70">See
-                        Apple App</button>
-                    <button onclick="scrollToSection('design')"
-                        class="btn-glow px-8 py-4 glass rounded-full font-bold">Jersey Portfolio</button>
+                <div class="mt-8 flex flex-wrap justify-center md:justify-start gap-3">
+                    <button onclick="scrollToSection('projects')" class="btn-glow px-6 py-3.5 bg-slate-700 hover:bg-slate-600 rounded-xl font-bold transition-all text-sm">
+                        View Projects
+                    </button>
+                    <button onclick="scrollToSection('project-rencana')" class="btn-glow px-6 py-3.5 glass border border-blue-500/30 text-blue-300 rounded-xl font-bold transition-all text-sm">
+                        View Rencana
+                    </button>
+                    <button onclick="scrollToSection('project-aizztech')" class="btn-glow px-6 py-3.5 glass border border-white/20 rounded-xl font-bold transition-all text-sm">
+                        Visit AizzTech
+                    </button>
+                    <button onclick="scrollToSection('contact')" class="btn-glow px-6 py-3.5 bg-white text-black rounded-xl font-bold transition-all text-sm">
+                        Contact Me
+                    </button>
                 </div>
-
             </div>
-
         </div>
     </section>
 
+    <!-- ABOUT & JOURNEY SECTION -->
     <section id="about" class="py-24 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
         <div class="reveal">
-            <h2 class="text-4xl font-black mb-6">THE <span class="text-slate-400">JOURNEY</span></h2>
-
-            <div class="space-y-6 text-gray-400 leading-relaxed">
-                <p>Started with a <b>Diploma in CS at UiTM Jasin</b>, now pursuing a <b>Degree in Artificial
-                        Intelligence at UiTM Merbok</b>. I thrive at the intersection of logical programming and
-                    aesthetic design.</p>
-                <p>I don't just write code; I build businesses. My sublimation jersey business combines my mastery of
-                    Adobe Tools with high-quality physical production.</p>
+            <h2 class="text-4xl font-black mb-6 text-slate-100">THE <span class="text-slate-400">JOURNEY</span></h2>
+            <div class="space-y-6 text-gray-400 leading-relaxed text-sm md:text-base">
+                <p>
+                    I am currently pursuing a <b>Bachelor of Artificial Intelligence at Universiti Teknologi MARA</b> after completing my <b>Diploma in Computer Science</b>. My journey combines software development, artificial intelligence, UI/UX design, entrepreneurship, and client-based digital solutions.
+                </p>
+                <p>
+                    Through <b>AizzTech Solution</b>, I develop mobile applications, websites, backend systems, admin dashboards, and business digitalization solutions. I also created <b>Rencana</b>, a student productivity app designed to help students manage tasks, timetables, AI quizzes, flashcards, campus events, and student services in one platform.
+                </p>
+                <p>
+                    Before focusing more on software development, I gained early business experience through freelance blank sublimation jersey sales, custom jersey design, and part-time customer service at Pujangga Modern / PUMO, where I handled high-volume customer orders and achieved monthly KPIs.
+                </p>
             </div>
 
             <div class="mt-10 grid grid-cols-2 gap-4">
-                <div class="glass p-6 rounded-2xl">
-                    <h4 class="text-slate-400 font-bold text-2xl">STDC</h4>
-                    <p class="text-xs uppercase tracking-widest mt-1 text-gray-500">Apple Developer Certified</p>
+                <div class="glass p-6 rounded-2xl border border-white/5">
+                    <h4 class="text-slate-300 font-bold text-2xl">Certiport</h4>
+                    <p class="text-xs uppercase tracking-widest mt-1 text-gray-500">Swift Certified</p>
                 </div>
-                <div class="glass p-6 rounded-2xl">
-                    <h4 class="text-slate-500 font-bold text-2xl">Ai/Ps</h4>
+                <div class="glass p-6 rounded-2xl border border-white/5">
+                    <h4 class="text-slate-300 font-bold text-2xl">Ai/Ps</h4>
                     <p class="text-xs uppercase tracking-widest mt-1 text-gray-500">Adobe Specialist</p>
                 </div>
-
             </div>
         </div>
 
-        <div class="reveal glass p-8 rounded-3xl">
-            <h3 class="text-xl font-bold mb-8 italic">// TECHNICAL STACK</h3>
-            <div class="space-y-6">
-                <div class="skill-item">
-                    <div class="flex justify-between mb-2"><span>AI & Python</span><span>85%</span></div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 85%;"></div>
+        <!-- TECHNICAL STACK SECTION -->
+        <div class="reveal glass p-8 rounded-3xl border border-white/5 space-y-6">
+            <h3 class="text-xl font-bold mb-4 italic text-slate-300">// TECHNICAL STACK</h3>
+            <div class="space-y-4">
+                <!-- Frontend -->
+                <div class="tech-category-card p-4 rounded-xl border border-white/5 glass">
+                    <div class="flex items-center gap-2 mb-2.5 text-slate-300">
+                        <i class="fas fa-desktop text-sm"></i>
+                        <h4 class="font-bold text-xs uppercase tracking-wider">Frontend</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">HTML</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">CSS</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">JavaScript</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">React</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">SwiftUI</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">Flutter</span>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <div class="flex justify-between mb-2"><span>Java Development</span><span>80%</span></div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 80%;"></div>
+                <!-- Backend & DB -->
+                <div class="tech-category-card p-4 rounded-xl border border-white/5 glass">
+                    <div class="flex items-center gap-2 mb-2.5 text-slate-300">
+                        <i class="fas fa-database text-sm"></i>
+                        <h4 class="font-bold text-xs uppercase tracking-wider">Backend & Database</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">Firebase</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">Supabase</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">API Integration</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">Database Management</span>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <div class="flex justify-between mb-2"><span>Graphic Design (Sublimation)</span><span>95%</span>
+                <!-- AI & Data -->
+                <div class="tech-category-card p-4 rounded-xl border border-white/5 glass">
+                    <div class="flex items-center gap-2 mb-2.5 text-slate-300">
+                        <i class="fas fa-brain text-sm"></i>
+                        <h4 class="font-bold text-xs uppercase tracking-wider">AI & Data</h4>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 95%;"></div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">Python</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">Machine Learning</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">Data Analytics</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">Artificial Intelligence</span>
+                    </div>
+                </div>
+                <!-- Design -->
+                <div class="tech-category-card p-4 rounded-xl border border-white/5 glass">
+                    <div class="flex items-center gap-2 mb-2.5 text-slate-300">
+                        <i class="fas fa-palette text-sm"></i>
+                        <h4 class="font-bold text-xs uppercase tracking-wider">Design</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">UI/UX Design</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">Adobe Illustrator</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">Adobe Photoshop</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">Canva</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">Branding</span>
+                    </div>
+                </div>
+                <!-- Business -->
+                <div class="tech-category-card p-4 rounded-xl border border-white/5 glass">
+                    <div class="flex items-center gap-2 mb-2.5 text-slate-300">
+                        <i class="fas fa-briefcase text-sm"></i>
+                        <h4 class="font-bold text-xs uppercase tracking-wider">Business</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">Client Communication</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">Project Management</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">Customer Service</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-slate-300">Entrepreneurship</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED PROJECTS SECTION -->
+    <section id="projects" class="py-24 px-4 space-y-16">
+        <div class="max-w-6xl mx-auto text-center mb-16 reveal">
+            <h2 class="text-4xl font-bold mb-4 uppercase tracking-widest text-slate-100">Featured <span class="text-slate-400">Projects</span></h2>
+            <p class="text-gray-400">Innovative digital solutions spanning mobile, web systems, and enterprise design.</p>
+            <div class="h-1 w-20 bg-slate-700 mx-auto mt-4"></div>
+        </div>
+
+        <!-- FEATURED PROJECT 1: Rencana (Full Width) -->
+        <div id="project-rencana" class="max-w-6xl mx-auto reveal">
+            <div class="rencana-glow liquid-glass p-8 md:p-12 rounded-[3rem] flex flex-col lg:flex-row items-center gap-12 border-l-4 border-blue-500">
+                <div class="w-full lg:w-1/3 flex justify-center">
+                    <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-900 aspect-square w-64 rounded-[3rem] flex items-center justify-center shadow-2xl relative overflow-hidden group border border-white/10 p-8">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition duration-500"></div>
+                        <img src="rencana_logo.png" alt="Rencana Logo" class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition duration-500">
+                    </div>
+                </div>
+                <div class="w-full lg:w-2/3">
+                    <div class="flex items-center gap-3 flex-wrap">
+                        <span class="px-4 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-bold tracking-widest uppercase">Flagship Product</span>
+                        <span class="px-4 py-1 bg-white/5 text-gray-400 rounded-full text-xs font-semibold tracking-wider">Mobile App / EdTech / AI Learning</span>
+                    </div>
+                    <h3 class="text-3xl md:text-4xl font-black mt-4 mb-3 uppercase tracking-tighter italic text-slate-100">Rencana <span class="text-blue-400">— Student Productivity App</span></h3>
+                    <p class="text-gray-400 text-sm md:text-base leading-relaxed mb-6">
+                        Rencana is a student productivity application designed to help students manage academic tasks, timetables, learning materials, campus events, and student services in one platform. The app includes task management, timetable generation using student ID, Google Classroom task import, task sharing, AI-generated quizzes, flashcards, campus event discovery, student services, and home screen widget support.
+                    </p>
+                    <div class="mb-6 text-sm">
+                        <p class="font-bold text-slate-300 uppercase tracking-wider mb-2">My Role:</p>
+                        <p class="text-gray-400 leading-relaxed">
+                            Product planning, UI/UX design, mobile app development, backend integration, database management, testing, App Store and Google Play Store deployment, user feedback collection, and continuous improvement.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-slate-400">Mobile App Development</span>
+                        <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-slate-400">UI/UX Design</span>
+                        <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-slate-400">SwiftUI</span>
+                        <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-slate-400">Flutter</span>
+                        <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-slate-400">Firebase</span>
+                        <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-slate-400">Supabase</span>
+                        <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-slate-400">API Integration</span>
+                        <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-slate-400">Backend Integration</span>
+                        <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-slate-400">EdTech</span>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://apps.apple.com/my/app/rencana/id6762103809" target="_blank" rel="noopener noreferrer" class="px-5 py-3 bg-white text-black font-bold rounded-xl hover:scale-105 transition flex items-center gap-2 text-xs uppercase tracking-wider">
+                            <i class="fab fa-apple text-base"></i> App Store
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.aizztech.rencana" target="_blank" rel="noopener noreferrer" class="px-5 py-3 bg-white/10 border border-white/20 text-white font-bold rounded-xl hover:bg-white/20 hover:scale-105 transition flex items-center gap-2 text-xs uppercase tracking-wider">
+                            <i class="fab fa-google-play text-base"></i> Google Play
+                        </a>
+                        <button onclick="openRencanaModal()" class="px-5 py-3 glass border border-blue-500/30 text-blue-300 font-bold rounded-xl hover:bg-blue-500/10 transition flex items-center gap-2 text-xs uppercase tracking-wider">
+                            <i class="fas fa-images"></i> View Screenshots
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FEATURED PROJECT 2: Instrak Venture (Full Width) -->
+        <div id="project-instrak" class="max-w-6xl mx-auto reveal">
+            <div class="instrak-glow liquid-glass p-8 md:p-12 rounded-[3rem] flex flex-col lg:flex-row items-center gap-12 border-l-4 border-cyan-500">
+                <div class="w-full lg:w-1/3 flex justify-center">
+                    <div class="bg-gradient-to-br from-cyan-600 via-teal-700 to-slate-900 aspect-square w-64 rounded-[3rem] flex flex-col items-center justify-center shadow-2xl relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition duration-500"></div>
+                        <i class="fas fa-globe text-7xl text-white mb-3 group-hover:scale-110 transition duration-500"></i>
+                        <span class="text-white font-extrabold tracking-wider text-xl uppercase">Instrak</span>
+                        <span class="text-cyan-300 text-xs tracking-widest font-mono uppercase mt-1">Enterprise Web</span>
+                    </div>
+                </div>
+                <div class="w-full lg:w-2/3">
+                    <div class="flex items-center gap-3 flex-wrap">
+                        <span class="px-4 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-bold tracking-widest uppercase">Client Project</span>
+                        <span class="px-4 py-1 bg-white/5 text-gray-400 rounded-full text-xs font-semibold tracking-wider">Website / Backend / Admin System</span>
+                    </div>
+                    <h3 class="text-3xl md:text-4xl font-black mt-4 mb-3 uppercase tracking-tighter italic text-slate-100">Instrak Venture <span class="text-cyan-400">Website Redesign</span></h3>
+                    <p class="text-gray-400 text-sm md:text-base leading-relaxed mb-6">
+                        Instrak Venture Website Redesign was a client project developed under AizzTech Solution. The project focused on redesigning the company website, improving user interface and user experience, integrating backend functionality, and building an admin-to-customer management flow.
+                    </p>
+                    <div class="mb-6 text-sm">
+                        <p class="font-bold text-slate-300 uppercase tracking-wider mb-2">My Role:</p>
+                        <p class="text-gray-400 leading-relaxed">
+                            Requirement analysis, UI/UX design, frontend development, backend integration, database management, system testing, deployment preparation, and client communication.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-slate-400">Web Development</span>
+                        <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-slate-400">Web Design</span>
+                        <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-slate-400">UI/UX Design</span>
+                        <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-slate-400">Backend Integration</span>
+                        <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-slate-400">Admin Dashboard</span>
+                        <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-slate-400">Database Management</span>
+                        <span class="text-xs px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-slate-400">Client Communication</span>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://www.instrakventure.com/" target="_blank" rel="noopener noreferrer" class="px-5 py-3 bg-white text-black font-bold rounded-xl hover:scale-105 transition flex items-center gap-2 text-xs uppercase tracking-wider shadow-lg">
+                            <i class="fas fa-external-link-alt text-sm"></i> View Project
+                        </a>
+                        <button onclick="openInstrakModal()" class="px-5 py-3 glass border border-cyan-500/30 text-cyan-300 font-bold rounded-xl hover:bg-cyan-500/10 transition flex items-center gap-2 text-xs uppercase tracking-wider">
+                            <i class="fas fa-images"></i> View Screenshots
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OTHER PROJECTS (2x2 Grid) -->
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Project 3: PPAS Digital Application Development -->
+            <div class="glass p-8 rounded-[2.5rem] border border-white/5 flex flex-col justify-between reveal">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-[10px] font-bold uppercase tracking-widest">Internship Project</span>
+                        <i class="fab fa-apple text-3xl text-slate-400"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold uppercase tracking-tight mb-3 text-slate-100">PPAS Digital Applications</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Developed and contributed to digital application projects during industrial training with Perbadanan Perpustakaan Awam Selangor and STDCx. The project involved web and iOS application development, including PPAS Staff Website, Firebase database integration, and PPAS RATU HUB.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">iOS Development</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">SwiftUI</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">Web Development</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">Firebase</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">Database Integration</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">UI/UX Design</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">Software Testing</span>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <a href="https://apps.apple.com/my/app/ppas/id6752301341" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-white text-black text-xs font-bold rounded-lg hover:scale-105 transition">App Store</a>
+                    <button onclick="openModal()" class="px-4 py-2.5 glass text-slate-300 text-xs font-bold rounded-lg hover:bg-white/5 transition">See Dashboard Images</button>
+                </div>
+            </div>
+
+            <!-- Project 4: AizzTech Solution -->
+            <div id="project-aizztech" class="glass p-8 rounded-[2.5rem] border border-white/5 flex flex-col justify-between reveal">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-[10px] font-bold uppercase tracking-widest">Digital Company</span>
+                        <i class="fas fa-microchip text-3xl text-slate-400"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold uppercase tracking-tight mb-3 text-slate-100">AizzTech Solution</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        AizzTech Solution is a digital solutions company focused on mobile app development, web development, UI/UX design, backend integration, admin systems, and business digitalization. Projects include Rencana App, Instrak Venture website redesign, and other client-based digital systems.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">Mobile App Development</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">Web Development</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">Backend Integration</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">UI/UX Design</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">Digital Solutions</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">System Development</span>
                     </div>
                 </div>
                 <div>
-                    <div class="flex justify-between mb-2"><span>iOS Dev (Swift)</span><span>75%</span></div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 75%;"></div>
+                    <a href="https://www.aizztech.com/" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-white text-black text-xs font-bold rounded-lg hover:scale-105 transition inline-block">Visit aizztech.com</a>
+                </div>
+            </div>
+
+            <!-- Project 5: E-Commerce System -->
+            <div id="project-ecommerce" class="glass p-8 rounded-[2.5rem] border border-white/5 flex flex-col justify-between reveal">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-[10px] font-bold uppercase tracking-widest">E-Commerce</span>
+                        <i class="fas fa-shopping-bag text-3xl text-slate-400"></i>
                     </div>
+                    <h4 class="text-2xl font-bold uppercase tracking-tight mb-3 text-slate-100">E-Commerce System</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        A full-stack eCommerce website built to handle digital transactions, inventory displays, and customer orders. Designed with a focus on high performance and secure database architecture.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">Full-Stack Web</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">PHP</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">Database System</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">JS Architecture</span>
+                    </div>
+                </div>
+                <div>
+                    <button class="px-4 py-2.5 bg-white text-black text-xs font-bold rounded-lg hover:scale-105 transition">Launch Site</button>
+                </div>
+            </div>
+
+            <!-- Project 6: Jersey Sublimation & Design Portfolio -->
+            <div class="glass p-8 rounded-[2.5rem] border border-white/5 flex flex-col justify-between reveal">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="px-3 py-1 bg-slate-500/20 text-slate-300 rounded-full text-[10px] font-bold uppercase tracking-widest">Business</span>
+                        <i class="fas fa-tshirt text-3xl text-slate-400"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold uppercase tracking-tight mb-3 text-slate-100">Jersey Sublimation & Design</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Freelance blank sublimation jersey and custom jersey design experience involving customer communication, product coordination, jersey mockup preparation, branding, and order management for university students, clubs, teams, and organizations.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">Graphic Design</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">Jersey Design</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">Sublimation Printing</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">Branding</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">Customer Service</span>
+                        <span class="text-[10px] px-2 py-0.5 bg-white/5 rounded-full text-gray-400">Business Management</span>
+                    </div>
+                </div>
+                <div>
+                    <button onclick="scrollToSection('design')" class="px-4 py-2.5 bg-white text-black text-xs font-bold rounded-lg hover:scale-105 transition flex items-center gap-1.5">View Gallery <i class="fas fa-arrow-down text-[10px]"></i></button>
                 </div>
             </div>
         </div>
     </section>
-    <section id="projects" class="py-24 px-4 space-y-12">
-        <div class="max-w-6xl mx-auto text-center mb-16 reveal">
-            <h2 class="text-4xl font-bold mb-4 uppercase tracking-widest">Digital <span
-                    class="text-slate-400">Ecosystem</span></h2>
 
-            <p class="text-gray-400">Full-stack solutions from Mobile to Web Administration.</p>
-            <div class="h-1 w-20 bg-slate-700 mx-auto mt-4"></div>
+    <!-- CERTIFICATIONS SECTION -->
+    <section id="certifications" class="py-24 px-6 max-w-6xl mx-auto reveal">
+        <h2 class="text-4xl font-bold mb-4 text-center uppercase tracking-widest text-slate-100">Certifications</h2>
+        <p class="text-gray-400 text-center mb-16">Global credentials demonstrating core expertise and development proficiency.</p>
+        <div class="h-1 w-20 bg-slate-700 mx-auto mt-4 mb-16"></div>
 
-        </div>
-
-        <div class="max-w-6xl mx-auto">
-            <div
-                class="liquid-glass p-8 md:p-12 rounded-[3rem] flex flex-col md:flex-row items-center gap-12 reveal border-l-4 border-slate-500">
-
-                <div class="w-full md:w-1/3">
-                    <div
-                        class="bg-gradient-to-br from-slate-400 to-slate-600 aspect-square rounded-[3rem] flex items-center justify-center shadow-2xl group">
-
-                        <i class="fab fa-apple text-8xl text-white group-hover:scale-110 transition duration-500"></i>
+        <div class="max-w-3xl mx-auto">
+            <div class="certificate-card glass p-8 rounded-[2.5rem] border border-white/5 flex flex-col md:flex-row items-center gap-8">
+                <div class="w-full md:w-1/4 flex justify-center">
+                    <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-lg">
+                        <i class="fas fa-award text-5xl text-white"></i>
                     </div>
                 </div>
-                <div class="w-full md:w-2/3">
-                    <span
-                        class="px-4 py-1 bg-slate-500/20 text-slate-400 rounded-full text-sm font-bold tracking-widest uppercase">Mobile
-                        Innovation</span>
-
-                    <h3 class="text-4xl font-black mt-4 mb-6 uppercase tracking-tighter italic">PPAS</h3>
-                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                        Successfully launched on the Apple App Store. This project solidified my skills in mobile
-                        architecture and user experience design, earning my STDC Apple Developer certification.
+                <div class="w-full md:w-3/4 text-center md:text-left">
+                    <span class="px-3 py-1 bg-amber-400/20 text-amber-300 rounded-full text-xs font-bold uppercase tracking-widest">Apple Ecosystem</span>
+                    <h3 class="text-2xl font-black mt-3 mb-1 text-slate-100">App Development with Swift – Associate</h3>
+                    <p class="text-sm text-amber-400/80 font-bold mb-4">Issuer: Certiport • Issued December 2024</p>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Professional credential demonstrating foundational skills in Swift programming, iOS app development, app design, and Apple development technologies.
                     </p>
-                    <a href="https://apps.apple.com/my/app/ppas/id6752301341" target="_blank" rel="noopener noreferrer">
-                        <button class="px-8 py-4 bg-white text-black font-bold rounded-xl hover:scale-105 transition">
-                            View on App Store
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div id="admin-web" class="max-w-6xl mx-auto">
-            <div
-                class="liquid-glass p-8 md:p-12 rounded-[3rem] flex flex-col md:flex-row items-center gap-12 reveal border-l-4 border-slate-700">
-
-                <div class="w-full md:w-1/3">
-                    <div
-                        class="bg-gradient-to-br from-slate-600 to-slate-800 aspect-square rounded-[3rem] flex items-center justify-center shadow-2xl group">
-
-                        <i
-                            class="fas fa-user-shield text-8xl text-white group-hover:scale-110 transition duration-500"></i>
-                    </div>
-                </div>
-                <div class="w-full md:w-2/3">
-                    <span
-                        class="px-4 py-1 bg-slate-700/20 text-slate-400 rounded-full text-sm font-bold tracking-widest uppercase">App
-                        Management</span>
-
-                    <h3 class="text-4xl font-black mt-4 mb-6 uppercase tracking-tighter italic">Admin PPAS</h3>
-                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                        A dedicated web-based control center built to manage the PPAS ecosystem. It features real-time
-                        data synchronization, user role management, and an intuitive interface for non-technical
-                        administrators.
-                    </p>
-                    <button onclick="openModal()"
-                        class="px-8 py-3 bg-white text-black font-bold rounded-xl hover:scale-105 transition">
-                        See Some Images
+                    <button onclick="openCertModal()" class="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-black font-bold rounded-xl transition duration-300 hover:scale-105 flex items-center gap-2 mx-auto md:mx-0 text-sm">
+                        <i class="fas fa-eye"></i> View Certificate
                     </button>
-                    <button
-                        class="px-8 py-4 glass text-white border border-slate-500/50 font-bold rounded-xl hover:bg-slate-500/10 transition tracking-widest uppercase text-xs">Internal
-                        Access Only</button>
-
-
-                </div>
-            </div>
-        </div>
-
-        <div id="aizztech" class="max-w-6xl mx-auto">
-            <div
-                class="liquid-glass p-8 md:p-12 rounded-[3rem] flex flex-col md:flex-row items-center gap-12 reveal border-l-4 border-slate-400">
-
-                <div class="w-full md:w-1/3 text-center">
-                    <div
-                        class="bg-gradient-to-br from-slate-400 via-slate-500 to-slate-800 aspect-square rounded-[3rem] flex flex-col items-center justify-center shadow-2xl group relative overflow-hidden">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500"></div>
-                        <i class="fas fa-microchip text-7xl text-white mb-4 group-hover:scale-110 transition duration-500"></i>
-                        <span class="text-white font-black tracking-widest text-xl">AIZZ<span class="text-slate-400">TECH</span></span>
-                    </div>
-                </div>
-                <div class="w-full md:w-2/3">
-                    <span
-                        class="px-4 py-1 bg-slate-400/20 text-slate-300 rounded-full text-sm font-bold tracking-widest uppercase">Elite Development Partner</span>
-
-                    <h3 class="text-4xl font-black mt-4 mb-2 uppercase tracking-tighter italic">AIZZTECH<span class="text-slate-500">.COM</span></h3>
-                    <p class="text-slate-400 font-bold mb-6 tracking-wide uppercase text-xs">Co-founded with MUHAMMAD SYAHRUL IZWAN</p>
-                    
-                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                        "Engineering Excellence for Modern Enterprises." We specialize in delivering precision-engineered software, translating complex business requirements into high-availability digital assets.
-                    </p>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                        <div class="glass p-4 rounded-xl border border-white/5">
-                            <i class="fas fa-code text-slate-400 mb-2"></i>
-                            <p class="text-[10px] uppercase font-bold text-gray-500 tracking-tighter">Custom Software</p>
-                        </div>
-                        <div class="glass p-4 rounded-xl border border-white/5">
-                            <i class="fas fa-cloud text-slate-400 mb-2"></i>
-                            <p class="text-[10px] uppercase font-bold text-gray-500 tracking-tighter">Cloud Infrastructure</p>
-                        </div>
-                        <div class="glass p-4 rounded-xl border border-white/5">
-                            <i class="fas fa-brain text-slate-400 mb-2"></i>
-                            <p class="text-[10px] uppercase font-bold text-gray-500 tracking-tighter">AI-Driven Solutions</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-wrap gap-4 items-center">
-                        <a href="https://www.aizztech.com/" target="_blank" rel="noopener noreferrer">
-                            <button class="px-8 py-4 bg-white text-black font-bold rounded-xl hover:scale-105 transition flex items-center gap-2">
-                                Visit aizztech.com <i class="fas fa-external-link-alt text-xs"></i>
-                            </button>
-                        </a>
-                        <div class="flex items-center gap-3 text-gray-500 px-4 py-2 glass rounded-lg border border-white/5">
-                            <span class="text-[10px] font-black tracking-widest uppercase border-r border-white/10 pr-3 mr-1">Stack</span>
-                            <i class="fab fa-react" title="React"></i>
-                            <i class="fab fa-node-js" title="Node.js"></i>
-                            <i class="fas fa-database" title="PostgreSQL"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="ecommerserve" class="max-w-6xl mx-auto">
-            <div
-                class="liquid-glass p-8 md:p-12 rounded-[3rem] flex flex-col md:flex-row items-center gap-12 reveal border-l-4 border-slate-400">
-
-                <div class="w-full md:w-1/3">
-                    <div
-                        class="bg-gradient-to-br from-slate-300 to-slate-500 aspect-square rounded-[3rem] flex items-center justify-center shadow-2xl group">
-
-                        <i
-                            class="fas fa-shopping-bag text-8xl text-white group-hover:scale-110 transition duration-500"></i>
-                    </div>
-                </div>
-                <div class="w-full md:w-2/3">
-                    <span
-                        class="px-4 py-1 bg-slate-400/20 text-slate-300 rounded-full text-sm font-bold tracking-widest uppercase">E-Commerce
-                        System</span>
-
-                    <h3 class="text-4xl font-black mt-4 mb-6 uppercase tracking-tighter italic">E-commerserve</h3>
-                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                        A full-stack eCommerce website built to handle digital transactions, inventory displays, and
-                        customer orders. Designed with a focus on high performance and secure database architecture.
-                    </p>
-                    <div class="flex gap-4">
-                        <button
-                            class="px-8 py-4 bg-white text-black font-bold rounded-xl hover:scale-105 transition">Launch
-                            Site</button>
-                        <div class="flex items-center gap-2 text-gray-500 px-4">
-                            <i class="fab fa-php"></i>
-                            <i class="fas fa-database"></i>
-                            <i class="fab fa-js"></i>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="design" class="py-24 px-6 max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold mb-12 reveal">Sublimation <span class="gradient-text">Mastery</span></h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- EXPERIENCE HIGHLIGHTS SECTION -->
+    <section id="highlights" class="py-24 px-6 max-w-6xl mx-auto reveal">
+        <h2 class="text-4xl font-bold mb-4 text-center uppercase tracking-widest text-slate-100">Experience <span class="text-slate-400">Highlights</span></h2>
+        <p class="text-gray-400 text-center mb-16">Key achievements across engineering, leadership, and operational roles.</p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Stat 1 -->
+            <div class="stat-card glass p-6 rounded-3xl border border-white/5 flex flex-col justify-between">
+                <div>
+                    <i class="fas fa-rocket text-2xl text-slate-400 mb-4"></i>
+                    <h4 class="text-base font-bold text-slate-200 mb-2">Founder & Executive</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">Co-founded AizzTech Solution to manage client architectures, branding, and digitalization services.</p>
+                </div>
+                <span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mt-4">AizzTech Solution</span>
+            </div>
 
-            <div class="glass overflow-hidden rounded-[2rem] group reveal">
+            <!-- Stat 2 -->
+            <div class="stat-card glass p-6 rounded-3xl border border-white/5 flex flex-col justify-between">
+                <div>
+                    <i class="fas fa-lightbulb text-2xl text-slate-400 mb-4"></i>
+                    <h4 class="text-base font-bold text-slate-200 mb-2">Creator of Rencana</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">Conceived, designed, and programmed the campus productivity and AI-supported study platform.</p>
+                </div>
+                <span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mt-4">Rencana App</span>
+            </div>
+
+            <!-- Stat 3 -->
+            <div class="stat-card glass p-6 rounded-3xl border border-white/5 flex flex-col justify-between">
+                <div>
+                    <i class="fas fa-cloud-upload-alt text-2xl text-slate-400 mb-4"></i>
+                    <h4 class="text-base font-bold text-slate-200 mb-2">App Store Publisher</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">Successfully built, tested, and published official apps to the Apple App Store and Google Play Store.</p>
+                </div>
+                <span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mt-4">App Stores Deployment</span>
+            </div>
+
+            <!-- Stat 4 -->
+            <div class="stat-card glass p-6 rounded-3xl border border-white/5 flex flex-col justify-between">
+                <div>
+                    <i class="fas fa-hands-helping text-2xl text-slate-400 mb-4"></i>
+                    <h4 class="text-base font-bold text-slate-200 mb-2">Client Redesign</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">Delivered responsive frontends, backend systems, and administration portals for Instrak Venture.</p>
+                </div>
+                <span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mt-4">Instrak Venture</span>
+            </div>
+
+            <!-- Stat 5 -->
+            <div class="stat-card glass p-6 rounded-3xl border border-white/5 flex flex-col justify-between">
+                <div>
+                    <i class="fas fa-chart-line text-2xl text-slate-400 mb-4"></i>
+                    <h4 class="text-base font-bold text-slate-200 mb-2">500+ Orders / Month</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">Handled operations, order pipeline management, and client inquiries during part-time work at PUMO.</p>
+                </div>
+                <span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mt-4">Pujangga Modern</span>
+            </div>
+
+            <!-- Stat 6 -->
+            <div class="stat-card glass p-6 rounded-3xl border border-white/5 flex flex-col justify-between">
+                <div>
+                    <i class="fas fa-bullseye text-2xl text-slate-400 mb-4"></i>
+                    <h4 class="text-base font-bold text-slate-200 mb-2">1,000+ KPI Achievement</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">Consistently met high-performance standards under fast-paced logistics environments.</p>
+                </div>
+                <span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mt-4">Operations KPI</span>
+            </div>
+
+            <!-- Stat 7 -->
+            <div class="stat-card glass p-6 rounded-3xl border border-white/5 flex flex-col justify-between">
+                <div>
+                    <i class="fas fa-tshirt text-2xl text-slate-400 mb-4"></i>
+                    <h4 class="text-base font-bold text-slate-200 mb-2">Jersey Branding</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">Managed end-to-end sales, sublimation customization, vector design, and mockups production.</p>
+                </div>
+                <span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mt-4">Freelance Biz</span>
+            </div>
+
+            <!-- Stat 8 -->
+            <div class="stat-card glass p-6 rounded-3xl border border-white/5 flex flex-col justify-between">
+                <div>
+                    <i class="fas fa-building text-2xl text-slate-400 mb-4"></i>
+                    <h4 class="text-base font-bold text-slate-200 mb-2">Public Sector Dev</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">Collaborated with Perbadanan Perpustakaan Awam Selangor and STDCx to deliver database-driven platforms.</p>
+                </div>
+                <span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mt-4">PPAS & STDCx</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- JERSEY GALLERY SECTION -->
+    <section id="design" class="py-24 px-6 max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 reveal text-slate-100">Sublimation <span class="gradient-text">Mastery</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass overflow-hidden rounded-[2rem] group reveal border border-white/5">
                 <div class="h-80 bg-gray-900 relative">
-                    <img src="design01.jpg" alt="Jersey Design 01"
-                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    <div
-                        class="absolute inset-0 bg-black/40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <img src="design01.jpg" alt="Jersey Design 01" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
                         <p class="font-bold tracking-widest text-white">CUSTOM DESIGN 01</p>
                     </div>
                 </div>
             </div>
 
-            <div class="glass overflow-hidden rounded-[2rem] group reveal">
+            <div class="glass overflow-hidden rounded-[2rem] group reveal border border-white/5">
                 <div class="h-80 bg-gray-900 relative">
-                    <img src="design02.jpg" alt="Jersey Design 02"
-                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    <div
-                        class="absolute inset-0 bg-black/40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <img src="design02.jpg" alt="Jersey Design 02" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
                         <p class="font-bold tracking-widest text-white">CUSTOM DESIGN 02</p>
                     </div>
                 </div>
             </div>
 
-            <div class="glass overflow-hidden rounded-[2rem] group reveal">
+            <div class="glass overflow-hidden rounded-[2rem] group reveal border border-white/5">
                 <div class="h-80 bg-gray-900 relative">
-                    <img src="design03.jpg" alt="Jersey Design 03"
-                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    <div
-                        class="absolute inset-0 bg-black/40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <img src="design03.jpg" alt="Jersey Design 03" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
                         <p class="font-bold tracking-widest text-white">CUSTOM DESIGN 03</p>
                     </div>
                 </div>
             </div>
-
         </div>
+
         <div class="flex justify-center mt-12 reveal">
             <a href="https://t.me/blankscatalog" target="_blank" rel="noopener noreferrer"
                 class="btn-glow px-10 py-4 liquid-glass border border-slate-500/30 rounded-full font-bold transition-transform hover:scale-105 duration-300 flex items-center gap-3">
@@ -353,110 +548,156 @@
         </div>
 
         <div class="mt-24 reveal relative group">
-            <p class="text-center text-gray-500 uppercase tracking-[0.3em] text-xs mb-10">Trusted by Institutions &
-                Brands</p>
+            <p class="text-center text-gray-500 uppercase tracking-[0.3em] text-xs mb-10">Trusted by Institutions & Brands</p>
 
-            <div
-                class="absolute left-4 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            <div class="absolute left-4 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
                 <i class="fas fa-chevron-left text-slate-400 text-2xl"></i>
-
             </div>
-            <div
-                class="absolute right-4 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            <div class="absolute right-4 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
                 <i class="fas fa-chevron-right text-slate-400 text-2xl"></i>
-
             </div>
 
-            <div
-                class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none">
-            </div>
-            <div
-                class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none">
-            </div>
+            <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
 
             <div class="overflow-hidden">
                 <div class="flex logo-track">
                     <div class="flex items-center gap-8 logo-group">
-                        <div class="logo-item"><img src="utem.png" alt="UTEM"><span>Universiti Teknikal Malaysia
-                                Melaka</span></div>
-                        <div class="logo-item"><img src="uitm.jpeg" alt="UiTM"><span>Universiti Teknologi MARA</span>
-                        </div>
+                        <div class="logo-item"><img src="utem.png" alt="UTEM"><span>Universiti Teknikal Malaysia Melaka</span></div>
+                        <div class="logo-item"><img src="uitm.jpeg" alt="UiTM"><span>Universiti Teknologi MARA</span></div>
                         <div class="logo-item"><img src="kgv.jpeg" alt="SMK KGV"><span>SMK King George V</span></div>
                         <div class="logo-item"><img src="yayasang2r.jpeg" alt="G2R"><span>Yayasan G2R</span></div>
-                        <div class="logo-item"><img src="gentingplantations.jpeg" alt="Genting"><span>Genting
-                                Plantations</span></div>
+                        <div class="logo-item"><img src="gentingplantations.jpeg" alt="Genting"><span>Genting Plantations</span></div>
                         <div class="logo-item"><img src="mhc.jpeg" alt="MHC"><span>MHC KEDAH</span></div>
-                        <div class="logo-item"><img src="usm.jpeg" alt="USM"><span>Univeristi Sains Malaysia</span>
-                        </div>
-                        <div class="logo-item"><img src="ucmi.jpeg" alt="UCMI"><span>University College of MAIWP
-                                International</span></div>
+                        <div class="logo-item"><img src="usm.jpeg" alt="USM"><span>Universiti Sains Malaysia</span></div>
+                        <div class="logo-item"><img src="ucmi.jpeg" alt="UCMI"><span>University College of MAIWP International</span></div>
                     </div>
                     <div class="flex items-center gap-8 logo-group">
-                        <div class="logo-item"><img src="utem.png" alt="UTEM"><span>Universiti Teknikal Malaysia
-                                Melaka</span></div>
-                        <div class="logo-item"><img src="uitm.jpeg" alt="UiTM"><span>Universiti Teknologi MARA</span>
-                        </div>
+                        <div class="logo-item"><img src="utem.png" alt="UTEM"><span>Universiti Teknikal Malaysia Melaka</span></div>
+                        <div class="logo-item"><img src="uitm.jpeg" alt="UiTM"><span>Universiti Teknologi MARA</span></div>
                         <div class="logo-item"><img src="kgv.jpeg" alt="SMK KGV"><span>SMK King George V</span></div>
                         <div class="logo-item"><img src="yayasang2r.jpeg" alt="G2R"><span>Yayasan G2R</span></div>
-                        <div class="logo-item"><img src="gentingplantations.jpeg" alt="Genting"><span>Genting
-                                Plantations</span></div>
+                        <div class="logo-item"><img src="gentingplantations.jpeg" alt="Genting"><span>Genting Plantations</span></div>
                         <div class="logo-item"><img src="mhc.jpeg" alt="MHC"><span>MHC KEDAH</span></div>
-                        <div class="logo-item"><img src="usm.jpeg" alt="USM"><span>Univeristi Sains Malaysia</span>
-                        </div>
-                        <div class="logo-item"><img src="ucmi.jpeg" alt="UCMI"><span>University College of MAIWP
-                                International</span></div>
+                        <div class="logo-item"><img src="usm.jpeg" alt="USM"><span>Universiti Sains Malaysia</span></div>
+                        <div class="logo-item"><img src="ucmi.jpeg" alt="UCMI"><span>University College of MAIWP International</span></div>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
-    <!-- foother oshkuuu-->
-
+    <!-- CONTACT / FOOTER SECTION -->
     <footer id="contact" class="py-24 text-center glass border-0 rounded-t-[4rem]">
-        <div class="reveal">
-            <h2 class="text-5xl font-black mb-6 italic">IZWAN HAMDAN</h2>
-            <p class="text-gray-400 mb-10 tracking-[0.2em] text-sm">AI STUDENT • DESIGNER • DEVELOPER</p>
-            <div class="flex justify-center gap-8 mb-12">
-                <a href="https://www.linkedin.com/in/muhd-izwan-2a3b36317/"
-                    class="text-3xl hover:text-slate-400 transition"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/muhdizwan04" class="text-3xl hover:text-slate-400 transition"><i
-                        class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/muhdizwn__?igsh=em9jZjh5YnBzcW16&utm_source=qr"
-                    class="text-3xl hover:text-slate-400 transition"><i class="fab fa-instagram"></i></a>
-
+        <div class="reveal max-w-4xl mx-auto px-6">
+            <h2 class="text-5xl font-black mb-6 italic tracking-tight text-slate-100">Let's Build Something Useful</h2>
+            <p class="text-gray-400 max-w-xl mx-auto mb-12 text-sm leading-relaxed uppercase tracking-wider">
+                Open to collaboration, freelance projects, client-based systems, app development, website development, UI/UX design, and digital solution projects.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-16">
+                <a href="https://www.linkedin.com/in/muhd-izwan-2a3b36317/" target="_blank" rel="noopener noreferrer"
+                    class="px-6 py-3 glass border border-white/10 rounded-xl font-bold hover:scale-105 hover:bg-white/5 hover:text-white text-gray-300 transition text-sm flex items-center gap-2">
+                    <i class="fab fa-linkedin text-base"></i> LinkedIn
+                </a>
+                <a href="https://github.com/muhdizwan04" target="_blank" rel="noopener noreferrer"
+                    class="px-6 py-3 glass border border-white/10 rounded-xl font-bold hover:scale-105 hover:bg-white/5 hover:text-white text-gray-300 transition text-sm flex items-center gap-2">
+                    <i class="fab fa-github text-base"></i> GitHub
+                </a>
+                <a href="mailto:muhdizwn01@gmail.com" target="_blank" rel="noopener noreferrer"
+                    class="px-6 py-3 bg-white text-black font-black rounded-xl hover:shadow-[0_0_30px_white] transition text-sm flex items-center gap-2">
+                    <i class="fas fa-envelope text-base"></i> Email Me
+                </a>
+                <a href="https://www.aizztech.com/" target="_blank" rel="noopener noreferrer"
+                    class="px-6 py-3 glass border border-white/10 rounded-xl font-bold hover:scale-105 hover:bg-white/5 hover:text-white text-gray-300 transition text-sm flex items-center gap-2">
+                    <i class="fas fa-building text-base"></i> AizzTech Website
+                </a>
+                <a href="https://apps.apple.com/my/app/rencana/id6762103809" target="_blank" rel="noopener noreferrer"
+                    class="px-6 py-3 glass border border-white/10 rounded-xl font-bold hover:scale-105 hover:bg-white/5 hover:text-white text-gray-300 transition text-sm flex items-center gap-2">
+                    <i class="fas fa-calendar-alt text-base"></i> Rencana App
+                </a>
             </div>
-            <a href="mailto:[muhdizwn01@gmail.com]"
-                class="px-12 py-5 bg-white text-black font-black rounded-full hover:shadow-[0_0_30px_white] transition uppercase tracking-widest">Connect
-                With Me</a>
-            <p class="mt-20 text-xs text-gray-600 uppercase tracking-widest">© 2025 Muhammad Izwan Bin Hamdan</p>
+
+            <div class="h-[1px] w-full bg-white/5 mb-8"></div>
+            <p class="text-xs text-gray-600 uppercase tracking-widest">© 2026 Muhammad Izwan Bin Hamdan. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- preview gambar when click button-->
-
+    <!-- PPAS Dashboard Modal -->
     <div id="imageModal"
         class="fixed inset-0 z-[100] hidden bg-black/90 flex-col items-center justify-center p-4 backdrop-blur-md">
         <button onclick="closeModal()"
             class="absolute top-10 right-10 text-white text-4xl hover:text-slate-400 transition">
-
             <i class="fas fa-times"></i>
         </button>
 
-        <p class="mt-8 text-slate-400 font-mono tracking-widest uppercase">Admin PPAS Interface Preview</p>
+        <p class="mt-8 text-slate-400 font-mono tracking-widest uppercase mb-6">Admin PPAS Interface Preview</p>
 
-
-        <div class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-            <img src="sswebsiteppas01.png" class="rounded-2xl border border-white/10 shadow-2xl"
-                alt="Dashboard Screenshot 1">
-            <img src="sswebsiteppas03.png" class="rounded-2xl border border-white/10 shadow-2xl"
-                alt="Dashboard Screenshot 2">
-            <img src="sswebsiteppas02.png" class="rounded-2xl border border-white/10 shadow-2xl"
-                alt="Dashboard Screenshot 1">
-
+        <div class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-3 gap-6 my-auto">
+            <img src="sswebsiteppas01.png" class="rounded-2xl border border-white/10 shadow-2xl" alt="Dashboard Screenshot 1">
+            <img src="sswebsiteppas02.png" class="rounded-2xl border border-white/10 shadow-2xl" alt="Dashboard Screenshot 2">
+            <img src="sswebsiteppas03.png" class="rounded-2xl border border-white/10 shadow-2xl" alt="Dashboard Screenshot 3">
         </div>
-
     </div>
 
-</body>
+    <!-- Rencana Screenshots Modal -->
+    <div id="rencanaModal"
+        class="fixed inset-0 z-[100] hidden bg-black/90 flex-col items-center justify-center p-4 backdrop-blur-md">
+        <button onclick="closeRencanaModal()"
+            class="absolute top-10 right-10 text-white text-4xl hover:text-slate-400 transition">
+            <i class="fas fa-times"></i>
+        </button>
 
+        <p class="mt-8 text-slate-400 font-mono tracking-widest uppercase mb-6">Rencana Application Preview</p>
+
+        <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-3 gap-6 my-auto px-4 overflow-y-auto max-h-[80vh]">
+            <div class="flex flex-col items-center">
+                <p class="text-xs text-slate-400 mb-2 uppercase font-bold tracking-wider">Student Dashboard</p>
+                <img src="rencana_dashboard.png" class="rounded-2xl border border-white/10 shadow-2xl max-h-[65vh] object-contain hover:scale-[1.02] transition duration-300" alt="Rencana Student Dashboard">
+            </div>
+            <div class="flex flex-col items-center">
+                <p class="text-xs text-slate-400 mb-2 uppercase font-bold tracking-wider">Timetable Schedule</p>
+                <img src="rencana_timetable.png" class="rounded-2xl border border-white/10 shadow-2xl max-h-[65vh] object-contain hover:scale-[1.02] transition duration-300" alt="Rencana Timetable Sync">
+            </div>
+            <div class="flex flex-col items-center">
+                <p class="text-xs text-slate-400 mb-2 uppercase font-bold tracking-wider">AI Quiz & Flashcards</p>
+                <img src="rencana_ai_quiz.png" class="rounded-2xl border border-white/10 shadow-2xl max-h-[65vh] object-contain hover:scale-[1.02] transition duration-300" alt="Rencana AI-Driven Study Quizzes">
+            </div>
+        </div>
+    </div>
+
+    <!-- Instrak Venture Screenshots Modal -->
+    <div id="instrakModal"
+        class="fixed inset-0 z-[100] hidden bg-black/90 flex-col items-center justify-center p-4 backdrop-blur-md">
+        <button onclick="closeInstrakModal()"
+            class="absolute top-10 right-10 text-white text-4xl hover:text-slate-400 transition">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <p class="mt-8 text-slate-400 font-mono tracking-widest uppercase mb-6">Instrak Venture Interface Preview</p>
+
+        <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-6 my-auto px-4 overflow-y-auto max-h-[80vh]">
+            <div class="flex flex-col items-center">
+                <p class="text-xs text-slate-400 mb-2 uppercase font-bold tracking-wider">Investor Portal / Landing Page</p>
+                <img src="instrak_landing.png" class="rounded-xl border border-white/10 shadow-2xl hover:scale-[1.01] transition duration-300" alt="Instrak Venture Landing Page Redesign">
+            </div>
+            <div class="flex flex-col items-center">
+                <p class="text-xs text-slate-400 mb-2 uppercase font-bold tracking-wider">Management Control Center</p>
+                <img src="instrak_admin.png" class="rounded-xl border border-white/10 shadow-2xl hover:scale-[1.01] transition duration-300" alt="Instrak Venture Admin Dashboard">
+            </div>
+        </div>
+    </div>
+
+    <!-- Certiport Certificate Modal -->
+    <div id="certModal" class="fixed inset-0 z-[100] hidden bg-black/90 flex-col items-center justify-center p-4 backdrop-blur-md">
+        <button onclick="closeCertModal()" class="absolute top-10 right-10 text-white text-4xl hover:text-slate-400 transition">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <div class="max-w-4xl w-full flex flex-col items-center my-auto px-4">
+            <p class="text-slate-400 font-mono tracking-widest uppercase mb-4 text-xs md:text-sm">App Development with Swift – Associate Certification</p>
+            <img src="swift_certificate.png" class="rounded-2xl border border-white/10 shadow-2xl max-h-[75vh] object-contain" alt="App Development with Swift Associate Certification">
+        </div>
+    </div>
+</body>
 </html>
