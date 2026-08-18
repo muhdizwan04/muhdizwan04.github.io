@@ -1,154 +1,185 @@
 /**
- * IZWAN HAMDAN PORTFOLIO ENGINE
+ * IZWAN HAMDAN — PORTFOLIO SCROLL ENGINE
+ * Monochrome build. All motion is scroll-driven; nothing decorative loops on its own
+ * except the two marquees.
  */
+(function () {
+    'use strict';
 
-// 1. Precise Smooth Scroll Logic
-window.scrollToSection = function (sectionId) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-        const navOffset = 100; // Space for fixed nav
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var isDesktop = function () { return window.innerWidth > 900; };
 
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
+    /* ---------------------------------------------------------
+       1. Smooth scroll to a section, accounting for the fixed nav
+       --------------------------------------------------------- */
+    window.scrollToSection = function (id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        var offset = isDesktop() ? 70 : 60;
+        var top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: top, behavior: reduceMotion ? 'auto' : 'smooth' });
+        closeNav();
+    };
+
+    /* ---------------------------------------------------------
+       2. Reveal on scroll — [data-reveal] fades up, .split masks
+          its lines upward from behind an overflow-hidden clip.
+       --------------------------------------------------------- */
+    var revealer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('in');
+
+            // Fill any skill bars living inside this element
+            entry.target.querySelectorAll('[data-bar]').forEach(function (bar) {
+                bar.style.width = bar.getAttribute('data-bar') + '%';
+            });
+
+            revealer.unobserve(entry.target);
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+    document.querySelectorAll('[data-reveal], [data-split]').forEach(function (el) {
+        revealer.observe(el);
+    });
+
+    // Stagger the masked lines of every split heading
+    document.querySelectorAll('[data-split]').forEach(function (h) {
+        h.querySelectorAll('.line > i').forEach(function (line, i) {
+            line.style.setProperty('--d', (i * 110) + 'ms');
+        });
+    });
+
+    /* ---------------------------------------------------------
+       3. Scroll progress bar + nav condense
+       --------------------------------------------------------- */
+    var progress = document.getElementById('progress');
+    var nav = document.getElementById('nav');
+    var heroImg = document.getElementById('heroImg');
+    var stackItems = Array.prototype.slice.call(document.querySelectorAll('.stack-item'));
+    var ticking = false;
+
+    function onScroll() {
+        var y = window.pageYOffset;
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+
+        progress.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+        nav.classList.toggle('scrolled', y > 40);
+
+        if (!reduceMotion) {
+            // Hero portrait parallax — the image is 112% tall, so it has room to drift
+            if (heroImg && y < window.innerHeight) {
+                heroImg.style.transform = 'translateY(' + (-y * 0.07) + 'px)';
+            }
+            depthStack();
+        }
+
+        ticking = false;
+    }
+
+    /* Stacked work cards: as the next card slides up over the pinned one,
+       push the pinned card back in Z so the deck reads as a physical stack. */
+    function depthStack() {
+        if (!isDesktop()) return;
+
+        var pin = 110; // matches the sticky offset in CSS
+
+        stackItems.forEach(function (item, i) {
+            var card = item.firstElementChild;
+            var next = stackItems[i + 1];
+            if (!card) return;
+
+            if (!next) {
+                card.style.transform = '';
+                card.style.opacity = '';
+                return;
+            }
+
+            var nextTop = next.getBoundingClientRect().top;
+            var span = window.innerHeight - pin;
+            var t = 1 - (nextTop - pin) / span;
+            t = Math.max(0, Math.min(1, t));
+
+            card.style.transform = 'scale(' + (1 - t * 0.055).toFixed(4) + ')';
+            card.style.opacity = (1 - t * 0.4).toFixed(3);
         });
     }
-};
 
-// 2. Intersection Observer / Reveal Logic
-const reveal = () => {
-    const reveals = document.querySelectorAll(".reveal");
+    window.addEventListener('scroll', function () {
+        if (!ticking) {
+            ticking = true;
+            window.requestAnimationFrame(onScroll);
+        }
+    }, { passive: true });
 
-    reveals.forEach(el => {
-        const windowHeight = window.innerHeight;
-        const elementTop = el.getBoundingClientRect().top;
-        const elementVisible = 150;
+    window.addEventListener('resize', onScroll);
 
-        if (elementTop < windowHeight - elementVisible) {
-            el.classList.add("active");
+    /* ---------------------------------------------------------
+       4. Active nav link tracking
+       --------------------------------------------------------- */
+    var navButtons = document.querySelectorAll('[data-nav]');
+    var sections = ['home', 'story', 'work', 'aizztech', 'jersey', 'contact']
+        .map(function (id) { return document.getElementById(id); })
+        .filter(Boolean);
 
-            // Trigger progress bar animations specifically
-            const progressFills = el.querySelectorAll('.progress-fill');
-            progressFills.forEach(fill => {
-                // If it hasn't animated yet
-                if (fill.style.width === "0px" || fill.style.width === "0%") {
-                    // This pulls the width from the HTML inline style you set
-                    // and resets it slightly to trigger the CSS transition
-                    const target = fill.getAttribute('style').match(/width:\s*(\d+)%/)[1];
-                    fill.style.width = target + "%";
-                }
+    var spy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            navButtons.forEach(function (b) {
+                b.classList.toggle('current', b.getAttribute('data-nav') === entry.target.id);
             });
-        }
+        });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+
+    sections.forEach(function (s) { spy.observe(s); });
+
+    /* ---------------------------------------------------------
+       5. Mobile nav
+       --------------------------------------------------------- */
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+
+    function closeNav() {
+        links.classList.remove('open');
+        if (toggle) toggle.textContent = 'Menu';
+    }
+
+    if (toggle) {
+        toggle.addEventListener('click', function () {
+            var open = links.classList.toggle('open');
+            toggle.textContent = open ? 'Close' : 'Menu';
+        });
+    }
+
+    window.addEventListener('resize', function () {
+        if (isDesktop()) closeNav();
     });
-};
 
-/**
- * DYNAMIC NEURAL NETWORK BACKGROUND
- */
-const canvas = document.getElementById('bg-canvas');
-const ctx = canvas.getContext('2d');
+    /* ---------------------------------------------------------
+       6. Admin PPAS screenshot modal
+       --------------------------------------------------------- */
+    var modal = document.getElementById('imageModal');
 
-let particles = [];
-const particleCount = 80;
+    window.openModal = function () {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    };
 
-// Resize canvas to fit window
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
+    window.closeModal = function () {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+    };
 
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal || e.target.classList.contains('modal-inner')) window.closeModal();
+    });
 
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.speedY = (Math.random() - 0.5) * 0.5;
-        this.size = Math.random() * 2;
-    }
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { window.closeModal(); closeNav(); }
+    });
 
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.x > canvas.width) this.x = 0;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        if (this.y < 0) this.y = canvas.height;
-    }
-
-    draw() {
-        ctx.fillStyle = 'rgba(148, 163, 184, 0.4)'; // Slate 400
-
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
-}
-
-function init() {
-    particles = [];
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-    }
-}
-
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
-
-        // Connect lines if particles are close
-        for (let j = i; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < 150) {
-                ctx.strokeStyle = `rgba(148, 163, 184, ${0.4 * (1 - distance / 150)})`;
-
-                ctx.lineWidth = 0.5;
-                ctx.beginPath();
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.stroke();
-            }
-        }
-    }
-    requestAnimationFrame(animate);
-}
-function openModal() {
-    const modal = document.getElementById('imageModal');
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    // Prevent scrolling while modal is open
-    document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-    const modal = document.getElementById('imageModal');
-    modal.classList.remove('flex');
-    modal.classList.add('hidden');
-    // Re-enable scrolling
-    document.body.style.overflow = 'auto';
-}
-
-// Close modal if user clicks outside the images
-document.getElementById('imageModal').addEventListener('click', function (e) {
-    if (e.target === this) {
-        closeModal();
-    }
-});
-
-init();
-animate();
-
-// Listeners
-window.addEventListener("scroll", reveal);
-document.addEventListener("DOMContentLoaded", reveal);
+    /* ---------------------------------------------------------
+       7. Kick off
+       --------------------------------------------------------- */
+    onScroll();
+})();

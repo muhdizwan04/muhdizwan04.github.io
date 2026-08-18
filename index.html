@@ -5,456 +5,485 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Izwan Hamdan | AI & Design Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description"
+        content="Muhammad Izwan Bin Hamdan — AI student, iOS developer and designer. Co-founder of AIZZTECH, makers of Rencana and Belanje.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=1.2">
-
-
-    <script src="script.js?v=1.2" defer></script>
-
-
+    <link rel="stylesheet" href="style.css?v=2.2">
+    <script src="script.js?v=2.1" defer></script>
 </head>
 
 <body>
-    <canvas id="bg-canvas" class="fixed top-0 left-0 -z-10"></canvas>
 
-    <nav class="fixed w-full z-50 p-6 flex justify-between items-center">
-        <div class="liquid-glass px-6 py-3 rounded-2xl flex justify-between items-center w-full max-w-6xl mx-auto">
+    <div id="progress"></div>
 
-            <div class="text-xl font-extrabold tracking-tighter cursor-pointer" onclick="scrollToSection('home')">
-                IZWAN<span class="text-slate-400 font-black">.</span>
+    <nav id="nav">
+        <div class="wrap nav-inner">
+            <button class="brand" onclick="scrollToSection('home')">IZWAN<span style="color:#5c5c5c">.</span></button>
+
+            <div class="nav-links" id="navLinks">
+                <button data-nav="home" onclick="scrollToSection('home')">Home</button>
+                <button data-nav="story" onclick="scrollToSection('story')">Story</button>
+                <button data-nav="work" onclick="scrollToSection('work')">Work</button>
+                <button data-nav="aizztech" onclick="scrollToSection('aizztech')">AIZZTECH</button>
+                <button data-nav="jersey" onclick="scrollToSection('jersey')">Jersey Biz</button>
+                <button class="nav-cta" data-nav="contact" onclick="scrollToSection('contact')">Hire Me</button>
             </div>
 
-            <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-gray-400">
-                <button onclick="scrollToSection('home')" class="hover:text-white transition">Home</button>
-                <button onclick="scrollToSection('about')" class="hover:text-white transition">Story</button>
-                <button onclick="scrollToSection('projects')" class="hover:text-white transition">App</button>
-                <button onclick="scrollToSection('admin-web')" class="hover:text-white transition">Admin Panel</button>
-                <button onclick="scrollToSection('aizztech')" class="hover:text-white transition">AIZZTECH</button>
-                <button onclick="scrollToSection('ecommerserve')" class="hover:text-white transition">Ecommerce</button>
-                <button onclick="scrollToSection('design')" class="hover:text-white transition">Jersey Biz</button>
-                <button onclick="scrollToSection('contact')" class="text-slate-300 font-bold">Hire Me</button>
-
-            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">Menu</button>
         </div>
     </nav>
 
-    <section id="home" class="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
-        <div class="absolute w-96 h-96 bg-slate-500/5 blur-[120px] -z-10 top-20 left-1/4"></div>
+    <!-- ================= HERO ================= -->
+    <section id="home">
+        <div class="wrap hero-grid">
 
-
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center w-full">
-
-            <div class="reveal active flex justify-center items-center relative">
-                <div class="absolute w-64 h-64 md:w-80 md:h-80 border border-slate-500/30 rounded-full animate-pulse">
-                </div>
-
-
-                <div
-                    class="relative w-64 h-64 md:w-96 md:h-96 glass rounded-[3rem] overflow-hidden border-2 border-slate-500/20 shadow-2xl transition-transform hover:scale-105 duration-700">
-
-                    <img src="myselft.jpeg" alt="Izwan Hamdan" class="w-full h-full object-cover object-top">
-
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div data-reveal>
+                <div class="portrait">
+                    <img src="myselft.jpeg" alt="Muhammad Izwan Bin Hamdan" id="heroImg">
                 </div>
             </div>
 
-            <div class="reveal active text-center md:text-left">
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 tracking-tight leading-none">
-                    MUHAMMAD <br> <span class="text-slate-300">IZWAN</span>
+            <div>
+                <p class="eyebrow" data-reveal style="--d:60ms">Kedah, Malaysia &nbsp;/&nbsp; Available for work</p>
+
+                <h1 class="hero-title split" data-split style="margin-top:26px">
+                    <span class="line"><i>Muhammad</i></span>
+                    <span class="line"><i class="thin">Izwan</i></span>
                 </h1>
 
-                <h3 class="text-xl md:text-2xl font-light text-gray-400 max-w-xl leading-relaxed">
-                    Building Intelligent Systems & Creative Digital Designs<br>
-                </h3>
-
-
-                <div class="mt-12 flex flex-wrap justify-center md:justify-start gap-4">
-                    <button onclick="scrollToSection('projects')"
-                        class="btn-glow px-8 py-4 bg-slate-700 rounded-full font-bold transition-transform hover:scale-105 duration-70">See
-                        Apple App</button>
-                    <button onclick="scrollToSection('design')"
-                        class="btn-glow px-8 py-4 glass rounded-full font-bold">Jersey Portfolio</button>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <section id="about" class="py-24 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
-        <div class="reveal">
-            <h2 class="text-4xl font-black mb-6">THE <span class="text-slate-400">JOURNEY</span></h2>
-
-            <div class="space-y-6 text-gray-400 leading-relaxed">
-                <p>Started with a <b>Diploma in CS at UiTM Jasin</b>, now pursuing a <b>Degree in Artificial
-                        Intelligence at UiTM Merbok</b>. I thrive at the intersection of logical programming and
-                    aesthetic design.</p>
-                <p>I don't just write code; I build businesses. My sublimation jersey business combines my mastery of
-                    Adobe Tools with high-quality physical production.</p>
-            </div>
-
-            <div class="mt-10 grid grid-cols-2 gap-4">
-                <div class="glass p-6 rounded-2xl">
-                    <h4 class="text-slate-400 font-bold text-2xl">STDC</h4>
-                    <p class="text-xs uppercase tracking-widest mt-1 text-gray-500">Apple Developer Certified</p>
-                </div>
-                <div class="glass p-6 rounded-2xl">
-                    <h4 class="text-slate-500 font-bold text-2xl">Ai/Ps</h4>
-                    <p class="text-xs uppercase tracking-widest mt-1 text-gray-500">Adobe Specialist</p>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="reveal glass p-8 rounded-3xl">
-            <h3 class="text-xl font-bold mb-8 italic">// TECHNICAL STACK</h3>
-            <div class="space-y-6">
-                <div class="skill-item">
-                    <div class="flex justify-between mb-2"><span>AI & Python</span><span>85%</span></div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 85%;"></div>
+                <div class="hero-meta" style="margin-top:44px">
+                    <div data-reveal style="--d:120ms">
+                        <h5>Discipline</h5>
+                        <p>Artificial Intelligence &amp; iOS Development</p>
+                    </div>
+                    <div data-reveal style="--d:220ms">
+                        <h5>Practice</h5>
+                        <p>Product design, sublimation jersey design</p>
+                    </div>
+                    <div data-reveal style="--d:320ms">
+                        <h5>Currently</h5>
+                        <p>Co-founder at AIZZTECH</p>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <div class="flex justify-between mb-2"><span>Java Development</span><span>80%</span></div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 80%;"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="flex justify-between mb-2"><span>Graphic Design (Sublimation)</span><span>95%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 95%;"></div>
-                    </div>
-                </div>
-                <div>
-                    <div class="flex justify-between mb-2"><span>iOS Dev (Swift)</span><span>75%</span></div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 75%;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="projects" class="py-24 px-4 space-y-12">
-        <div class="max-w-6xl mx-auto text-center mb-16 reveal">
-            <h2 class="text-4xl font-bold mb-4 uppercase tracking-widest">Digital <span
-                    class="text-slate-400">Ecosystem</span></h2>
 
-            <p class="text-gray-400">Full-stack solutions from Mobile to Web Administration.</p>
-            <div class="h-1 w-20 bg-slate-700 mx-auto mt-4"></div>
-
-        </div>
-
-        <div class="max-w-6xl mx-auto">
-            <div
-                class="liquid-glass p-8 md:p-12 rounded-[3rem] flex flex-col md:flex-row items-center gap-12 reveal border-l-4 border-slate-500">
-
-                <div class="w-full md:w-1/3">
-                    <div
-                        class="bg-gradient-to-br from-slate-400 to-slate-600 aspect-square rounded-[3rem] flex items-center justify-center shadow-2xl group">
-
-                        <i class="fab fa-apple text-8xl text-white group-hover:scale-110 transition duration-500"></i>
-                    </div>
-                </div>
-                <div class="w-full md:w-2/3">
-                    <span
-                        class="px-4 py-1 bg-slate-500/20 text-slate-400 rounded-full text-sm font-bold tracking-widest uppercase">Mobile
-                        Innovation</span>
-
-                    <h3 class="text-4xl font-black mt-4 mb-6 uppercase tracking-tighter italic">PPAS</h3>
-                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                        Successfully launched on the Apple App Store. This project solidified my skills in mobile
-                        architecture and user experience design, earning my STDC Apple Developer certification.
-                    </p>
-                    <a href="https://apps.apple.com/my/app/ppas/id6752301341" target="_blank" rel="noopener noreferrer">
-                        <button class="px-8 py-4 bg-white text-black font-bold rounded-xl hover:scale-105 transition">
-                            View on App Store
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div id="admin-web" class="max-w-6xl mx-auto">
-            <div
-                class="liquid-glass p-8 md:p-12 rounded-[3rem] flex flex-col md:flex-row items-center gap-12 reveal border-l-4 border-slate-700">
-
-                <div class="w-full md:w-1/3">
-                    <div
-                        class="bg-gradient-to-br from-slate-600 to-slate-800 aspect-square rounded-[3rem] flex items-center justify-center shadow-2xl group">
-
-                        <i
-                            class="fas fa-user-shield text-8xl text-white group-hover:scale-110 transition duration-500"></i>
-                    </div>
-                </div>
-                <div class="w-full md:w-2/3">
-                    <span
-                        class="px-4 py-1 bg-slate-700/20 text-slate-400 rounded-full text-sm font-bold tracking-widest uppercase">App
-                        Management</span>
-
-                    <h3 class="text-4xl font-black mt-4 mb-6 uppercase tracking-tighter italic">Admin PPAS</h3>
-                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                        A dedicated web-based control center built to manage the PPAS ecosystem. It features real-time
-                        data synchronization, user role management, and an intuitive interface for non-technical
-                        administrators.
-                    </p>
-                    <button onclick="openModal()"
-                        class="px-8 py-3 bg-white text-black font-bold rounded-xl hover:scale-105 transition">
-                        See Some Images
+                <div class="btn-row" style="margin-top:40px">
+                    <button class="btn" data-reveal style="--d:380ms" onclick="scrollToSection('work')">
+                        See the work <i class="fas fa-arrow-down"></i>
                     </button>
-                    <button
-                        class="px-8 py-4 glass text-white border border-slate-500/50 font-bold rounded-xl hover:bg-slate-500/10 transition tracking-widest uppercase text-xs">Internal
-                        Access Only</button>
-
-
+                    <button class="btn btn-ghost" data-reveal style="--d:440ms"
+                        onclick="scrollToSection('aizztech')">AIZZTECH apps</button>
                 </div>
             </div>
         </div>
 
-        <div id="aizztech" class="max-w-6xl mx-auto">
-            <div
-                class="liquid-glass p-8 md:p-12 rounded-[3rem] flex flex-col md:flex-row items-center gap-12 reveal border-l-4 border-slate-400">
+        <div class="scroll-hint">Scroll</div>
+    </section>
 
-                <div class="w-full md:w-1/3 text-center">
-                    <div
-                        class="bg-gradient-to-br from-slate-400 via-slate-500 to-slate-800 aspect-square rounded-[3rem] flex flex-col items-center justify-center shadow-2xl group relative overflow-hidden">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500"></div>
-                        <i class="fas fa-microchip text-7xl text-white mb-4 group-hover:scale-110 transition duration-500"></i>
-                        <span class="text-white font-black tracking-widest text-xl">AIZZ<span class="text-slate-400">TECH</span></span>
+    <!-- ================= MARQUEE ================= -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>AI Engineering</span><b>●</b>
+            <span class="out">iOS Development</span><b>●</b>
+            <span>Product Design</span><b>●</b>
+            <span class="out">Sublimation Jersey</span><b>●</b>
+            <span>AIZZTECH</span><b>●</b>
+        </div>
+        <div class="marquee-track">
+            <span>AI Engineering</span><b>●</b>
+            <span class="out">iOS Development</span><b>●</b>
+            <span>Product Design</span><b>●</b>
+            <span class="out">Sublimation Jersey</span><b>●</b>
+            <span>AIZZTECH</span><b>●</b>
+        </div>
+    </div>
+
+    <!-- ================= STORY ================= -->
+    <section id="story" class="sec" style="border-top:0">
+        <div class="wrap">
+            <div class="story-grid">
+
+                <div class="sticky-col">
+                    <p class="eyebrow" data-reveal>01 &nbsp;/&nbsp; Story</p>
+                    <h2 class="sec-title split" data-split style="margin-top:22px">
+                        <span class="line"><i>The</i></span>
+                        <span class="line"><i class="thin">Journey</i></span>
+                    </h2>
+
+                    <div class="fact-grid" data-reveal style="--d:180ms">
+                        <div class="fact"><strong>STDC</strong><span>Apple Developer Certified</span></div>
+                        <div class="fact"><strong>Ai / Ps</strong><span>Adobe Specialist</span></div>
                     </div>
                 </div>
-                <div class="w-full md:w-2/3">
-                    <span
-                        class="px-4 py-1 bg-slate-400/20 text-slate-300 rounded-full text-sm font-bold tracking-widest uppercase">Elite Development Partner</span>
 
-                    <h3 class="text-4xl font-black mt-4 mb-2 uppercase tracking-tighter italic">AIZZTECH<span class="text-slate-500">.COM</span></h3>
-                    <p class="text-slate-400 font-bold mb-6 tracking-wide uppercase text-xs">Co-founded with MUHAMMAD SYAHRUL IZWAN</p>
-                    
-                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                        "Engineering Excellence for Modern Enterprises." We specialize in delivering precision-engineered software, translating complex business requirements into high-availability digital assets.
-                    </p>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                        <div class="glass p-4 rounded-xl border border-white/5">
-                            <i class="fas fa-code text-slate-400 mb-2"></i>
-                            <p class="text-[10px] uppercase font-bold text-gray-500 tracking-tighter">Custom Software</p>
-                        </div>
-                        <div class="glass p-4 rounded-xl border border-white/5">
-                            <i class="fas fa-cloud text-slate-400 mb-2"></i>
-                            <p class="text-[10px] uppercase font-bold text-gray-500 tracking-tighter">Cloud Infrastructure</p>
-                        </div>
-                        <div class="glass p-4 rounded-xl border border-white/5">
-                            <i class="fas fa-brain text-slate-400 mb-2"></i>
-                            <p class="text-[10px] uppercase font-bold text-gray-500 tracking-tighter">AI-Driven Solutions</p>
-                        </div>
+                <div>
+                    <div class="story-body" data-reveal>
+                        <p>Started with a <b>Diploma in Computer Science at UiTM Jasin</b>, now reading for a
+                            <b>Degree in Artificial Intelligence at UiTM Merbok</b>. I work at the intersection of
+                            logical programming and aesthetic design — the systems have to run, and they have to look
+                            like someone cared.
+                        </p>
+                        <p>I don't just write code; I build businesses. My sublimation jersey operation pairs mastery of
+                            the Adobe suite with high-quality physical production, and AIZZTECH turns that same
+                            discipline into shipped software.</p>
                     </div>
 
-                    <div class="flex flex-wrap gap-4 items-center">
-                        <a href="https://www.aizztech.com/" target="_blank" rel="noopener noreferrer">
-                            <button class="px-8 py-4 bg-white text-black font-bold rounded-xl hover:scale-105 transition flex items-center gap-2">
-                                Visit aizztech.com <i class="fas fa-external-link-alt text-xs"></i>
-                            </button>
-                        </a>
-                        <div class="flex items-center gap-3 text-gray-500 px-4 py-2 glass rounded-lg border border-white/5">
-                            <span class="text-[10px] font-black tracking-widest uppercase border-r border-white/10 pr-3 mr-1">Stack</span>
-                            <i class="fab fa-react" title="React"></i>
-                            <i class="fab fa-node-js" title="Node.js"></i>
-                            <i class="fas fa-database" title="PostgreSQL"></i>
+                    <div class="skills" style="margin-top:48px">
+                        <p class="eyebrow" data-reveal style="margin-bottom:26px">Technical stack</p>
+
+                        <div class="skill" data-reveal>
+                            <div class="skill-top"><span>AI &amp; Python</span><span>85</span></div>
+                            <div class="bar"><i data-bar="85" style="--d:100ms"></i></div>
+                        </div>
+                        <div class="skill" data-reveal style="--d:80ms">
+                            <div class="skill-top"><span>Java Development</span><span>80</span></div>
+                            <div class="bar"><i data-bar="80" style="--d:220ms"></i></div>
+                        </div>
+                        <div class="skill" data-reveal style="--d:160ms">
+                            <div class="skill-top"><span>Graphic Design — Sublimation</span><span>95</span></div>
+                            <div class="bar"><i data-bar="95" style="--d:340ms"></i></div>
+                        </div>
+                        <div class="skill" data-reveal style="--d:240ms">
+                            <div class="skill-top"><span>iOS Development — Swift</span><span>75</span></div>
+                            <div class="bar"><i data-bar="75" style="--d:460ms"></i></div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
+    </section>
 
-        <div id="ecommerserve" class="max-w-6xl mx-auto">
-            <div
-                class="liquid-glass p-8 md:p-12 rounded-[3rem] flex flex-col md:flex-row items-center gap-12 reveal border-l-4 border-slate-400">
+    <!-- ================= WORK (stacked scroll cards) ================= -->
+    <section id="work" class="sec">
+        <div class="wrap">
+            <div class="sec-head">
+                <div>
+                    <p class="eyebrow" data-reveal>02 &nbsp;/&nbsp; Work</p>
+                    <h2 class="sec-title split" data-split style="margin-top:22px">
+                        <span class="line"><i>Digital</i></span>
+                        <span class="line"><i class="thin">Ecosystem</i></span>
+                    </h2>
+                </div>
+                <p class="sec-lede" data-reveal style="--d:140ms">Full-stack solutions from mobile to web
+                    administration — shipped, maintained, and used by real people.</p>
+            </div>
 
-                <div class="w-full md:w-1/3">
-                    <div
-                        class="bg-gradient-to-br from-slate-300 to-slate-500 aspect-square rounded-[3rem] flex items-center justify-center shadow-2xl group">
+            <div class="stack">
 
-                        <i
-                            class="fas fa-shopping-bag text-8xl text-white group-hover:scale-110 transition duration-500"></i>
+                <div class="stack-item">
+                    <article class="card" data-reveal>
+                        <div>
+                            <p class="card-num">01 / Mobile</p>
+                            <div class="card-tile" style="margin-top:18px"><i class="fab fa-apple"></i></div>
+                        </div>
+                        <div>
+                            <span class="tag">Mobile Innovation</span>
+                            <h3>PPAS</h3>
+                            <p>Successfully launched on the Apple App Store. This project solidified my skills in mobile
+                                architecture and user experience design, and earned my STDC Apple Developer
+                                certification.</p>
+                            <div class="btn-row">
+                                <a class="btn" href="https://apps.apple.com/my/app/ppas/id6752301341" target="_blank"
+                                    rel="noopener noreferrer">View on App Store <i
+                                        class="fas fa-arrow-up-right-from-square" style="font-size:11px"></i></a>
+                                <div class="stack-chips"><i class="fas fa-mobile-screen-button" title="Swift"></i><i
+                                        class="fab fa-apple" title="iOS"></i></div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="stack-item">
+                    <article class="card" data-reveal>
+                        <div>
+                            <p class="card-num">02 / Web</p>
+                            <div class="card-tile" style="margin-top:18px"><i class="fas fa-user-shield"></i></div>
+                        </div>
+                        <div>
+                            <span class="tag">App Management</span>
+                            <h3>Admin PPAS</h3>
+                            <p>A dedicated web-based control center built to manage the PPAS ecosystem. Real-time data
+                                synchronisation, user role management, and an interface a non-technical administrator
+                                can actually operate.</p>
+                            <div class="btn-row">
+                                <button class="btn" onclick="openModal()">See some images</button>
+                                <button class="btn btn-ghost" disabled style="opacity:.55;cursor:default">Internal
+                                    access only</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="stack-item">
+                    <article class="card" data-reveal>
+                        <div>
+                            <p class="card-num">03 / Commerce</p>
+                            <div class="card-tile" style="margin-top:18px"><i class="fas fa-shopping-bag"></i></div>
+                        </div>
+                        <div>
+                            <span class="tag">E-Commerce System</span>
+                            <h3>E-commerserve</h3>
+                            <p>A full-stack eCommerce website handling digital transactions, inventory displays and
+                                customer orders — built around high performance and a secure database architecture.</p>
+                            <div class="btn-row">
+                                <button class="btn">Launch site</button>
+                                <div class="stack-chips"><i class="fab fa-php" title="PHP"></i><i
+                                        class="fas fa-database" title="MySQL"></i><i class="fab fa-js"
+                                        title="JavaScript"></i></div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= AIZZTECH ================= -->
+    <section id="aizztech" class="sec">
+        <div class="wrap">
+            <div class="sec-head">
+                <div>
+                    <p class="eyebrow" data-reveal>03 &nbsp;/&nbsp; Venture</p>
+                    <h2 class="sec-title split" data-split style="margin-top:22px">
+                        <span class="line"><i>The</i></span>
+                        <span class="line"><i class="thin">Studio</i></span>
+                    </h2>
+                </div>
+                <p class="sec-lede" data-reveal style="--d:140ms">Where the engineering practice lives — and where
+                    Rencana and Belanje are built and shipped.</p>
+            </div>
+
+            <div class="venture-head" data-reveal>
+                <span class="tag">Elite Development Partner</span>
+                <h3>AIZZ<span class="thin">TECH</span></h3>
+                <p class="cofound">Co-founded with Muhammad Syahrul Izwan &nbsp;·&nbsp; aizztech.com</p>
+                <p class="lede">“Engineering excellence for modern enterprises.” We build precision-engineered software
+                    — custom platforms, cloud infrastructure and AI-driven systems — turning complex business
+                    requirements into high-availability digital assets.</p>
+
+                <div class="svc-grid">
+                    <div class="svc"><i class="fas fa-code"></i>
+                        <p>Custom Software</p>
+                    </div>
+                    <div class="svc"><i class="fas fa-cloud"></i>
+                        <p>Cloud Infrastructure</p>
+                    </div>
+                    <div class="svc"><i class="fas fa-brain"></i>
+                        <p>AI &amp; Data Intelligence</p>
+                    </div>
+                    <div class="svc"><i class="fas fa-shield-halved"></i>
+                        <p>Security &amp; Audits</p>
                     </div>
                 </div>
-                <div class="w-full md:w-2/3">
-                    <span
-                        class="px-4 py-1 bg-slate-400/20 text-slate-300 rounded-full text-sm font-bold tracking-widest uppercase">E-Commerce
-                        System</span>
 
-                    <h3 class="text-4xl font-black mt-4 mb-6 uppercase tracking-tighter italic">E-commerserve</h3>
-                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                        A full-stack eCommerce website built to handle digital transactions, inventory displays, and
-                        customer orders. Designed with a focus on high performance and secure database architecture.
-                    </p>
-                    <div class="flex gap-4">
-                        <button
-                            class="px-8 py-4 bg-white text-black font-bold rounded-xl hover:scale-105 transition">Launch
-                            Site</button>
-                        <div class="flex items-center gap-2 text-gray-500 px-4">
-                            <i class="fab fa-php"></i>
-                            <i class="fas fa-database"></i>
-                            <i class="fab fa-js"></i>
+                <div class="btn-row">
+                    <a class="btn" href="https://www.aizztech.com/" target="_blank" rel="noopener noreferrer">Visit
+                        aizztech.com <i class="fas fa-arrow-up-right-from-square" style="font-size:11px"></i></a>
+                    <div class="stack-chips"><i class="fab fa-react" title="React"></i><i class="fab fa-node-js"
+                            title="Node.js"></i><i class="fas fa-database" title="PostgreSQL"></i></div>
+                </div>
+            </div>
+
+            <p class="eyebrow" data-reveal style="margin-bottom:26px">Products by AIZZTECH</p>
+
+            <div class="apps">
+
+                <!-- RENCANA -->
+                <article class="app" data-reveal>
+                    <div class="app-top">
+                        <div class="app-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div>
+                            <h4>Rencana.</h4>
+                            <small>Student Planner</small>
                         </div>
+                    </div>
+
+                    <p>Plan smarter. Study better. Stay connected. An all-in-one student companion that brings classes,
+                        tasks, revision, notes and study community into one clean, focused app.</p>
+
+                    <ul class="feat">
+                        <li><em>01</em>Powerful planner — assignments, deadlines and timetable views</li>
+                        <li><em>02</em>AI study tools — task extraction, AI quizzes, flashcard generation, timetable
+                            import from a photo</li>
+                        <li><em>03</em>Active recall flashcards with mastery tracking</li>
+                        <li><em>04</em>Friends &amp; circles — share tasks and set accountability goals</li>
+                        <li><em>05</em>Google Classroom sync and academic calendar</li>
+                        <li><em>06</em>Smart reminders with home and lock-screen widgets</li>
+                    </ul>
+
+                    <div class="app-meta">
+                        <span class="pill">★ 5.0 · 14 ratings</span>
+                        <span class="pill">Education</span>
+                        <span class="pill">Ages 16+</span>
+                        <span class="pill">Free · Plus RM4.90 · Pro RM10.90</span>
+                    </div>
+
+                    <div class="btn-row">
+                        <a class="btn" href="https://aizztech.com/rencana/" target="_blank"
+                            rel="noopener noreferrer">Explore Rencana <i class="fas fa-arrow-up-right-from-square"
+                                style="font-size:11px"></i></a>
+                        <div class="stack-chips"><i class="fab fa-app-store-ios" title="App Store"></i><i
+                                class="fab fa-google-play" title="Google Play"></i></div>
+                    </div>
+                </article>
+
+                <!-- BELANJE -->
+                <article class="app" data-reveal style="--d:140ms">
+                    <div class="app-top">
+                        <div class="app-icon"><i class="fas fa-wallet"></i></div>
+                        <div>
+                            <h4>Belanje.</h4>
+                            <small>Personal &amp; Business Finance</small>
+                        </div>
+                    </div>
+
+                    <p>A clean, private way to manage money in Malaysia. Track spending, budgets, bills, receipts,
+                        invoices and tax — personal and business — in one app.</p>
+
+                    <ul class="feat">
+                        <li><em>01</em>Track everything — income, expenses, categories, budgets, monthly reports</li>
+                        <li><em>02</em>Scan receipts — reads merchant, total and items, no typing</li>
+                        <li><em>03</em>Never miss a bill — subscription reminders and over-budget alerts</li>
+                        <li><em>04</em>Built for Malaysia — income-tax estimates, reliefs, SST and e-invoice helpers
+                            tuned to LHDN rules</li>
+                        <li><em>05</em>Business mode — invoicing, inventory and shared team access</li>
+                        <li><em>06</em>Private by design — encrypted, never sold, delete anytime</li>
+                    </ul>
+
+                    <div class="app-meta">
+                        <span class="pill">Finance</span>
+                        <span class="pill">Malaysia · LHDN ready</span>
+                        <span class="pill">Personal + Business</span>
+                        <span class="pill">Plus &amp; Pro tiers</span>
+                    </div>
+
+                    <div class="btn-row">
+                        <a class="btn" href="https://aizztech.com/belanje/" target="_blank"
+                            rel="noopener noreferrer">Explore Belanje <i class="fas fa-arrow-up-right-from-square"
+                                style="font-size:11px"></i></a>
+                        <div class="stack-chips"><i class="fas fa-receipt" title="Receipt OCR"></i><i
+                                class="fas fa-lock" title="Encrypted"></i></div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= JERSEY BIZ ================= -->
+    <section id="jersey" class="sec">
+        <div class="wrap">
+            <div class="sec-head">
+                <div>
+                    <p class="eyebrow" data-reveal>04 &nbsp;/&nbsp; Jersey Biz</p>
+                    <h2 class="sec-title split" data-split style="margin-top:22px">
+                        <span class="line"><i>Sublimation</i></span>
+                        <span class="line"><i class="thin">Mastery</i></span>
+                    </h2>
+                </div>
+                <p class="sec-lede" data-reveal style="--d:140ms">Custom jersey design and production — Adobe
+                    Illustrator and Photoshop through to finished, printed kit.</p>
+            </div>
+
+            <div class="gal" data-reveal>
+                <figure><img src="design01.jpg" alt="Custom jersey design 01">
+                    <figcaption>Custom Design 01</figcaption>
+                </figure>
+                <figure><img src="design02.jpg" alt="Custom jersey design 02">
+                    <figcaption>Custom Design 02</figcaption>
+                </figure>
+                <figure><img src="design03.jpg" alt="Custom jersey design 03">
+                    <figcaption>Custom Design 03</figcaption>
+                </figure>
+            </div>
+
+            <div class="btn-row" style="margin-top:32px" data-reveal>
+                <a class="btn btn-ghost" href="https://t.me/blankscatalog" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-telegram"></i> View more / Catalog
+                </a>
+            </div>
+
+            <div class="clients">
+                <p>Trusted by institutions &amp; brands</p>
+                <div class="logo-track">
+                    <div class="logo-group">
+                        <div class="logo-item"><img src="utem.png" alt="UTeM"><span>Universiti Teknikal Malaysia
+                                Melaka</span></div>
+                        <div class="logo-item"><img src="uitm.jpeg" alt="UiTM"><span>Universiti Teknologi MARA</span>
+                        </div>
+                        <div class="logo-item"><img src="kgv.jpeg" alt="SMK KGV"><span>SMK King George V</span></div>
+                        <div class="logo-item"><img src="yayasang2r.jpeg" alt="Yayasan G2R"><span>Yayasan G2R</span>
+                        </div>
+                        <div class="logo-item"><img src="gentingplantations.jpeg" alt="Genting Plantations"><span>Genting
+                                Plantations</span></div>
+                        <div class="logo-item"><img src="mhc.jpeg" alt="MHC Kedah"><span>MHC Kedah</span></div>
+                        <div class="logo-item"><img src="usm.jpeg" alt="USM"><span>Universiti Sains Malaysia</span>
+                        </div>
+                        <div class="logo-item"><img src="ucmi.jpeg" alt="UCMI"><span>University College of MAIWP
+                                International</span></div>
+                    </div>
+                    <div class="logo-group" aria-hidden="true">
+                        <div class="logo-item"><img src="utem.png" alt=""><span>Universiti Teknikal Malaysia
+                                Melaka</span></div>
+                        <div class="logo-item"><img src="uitm.jpeg" alt=""><span>Universiti Teknologi MARA</span></div>
+                        <div class="logo-item"><img src="kgv.jpeg" alt=""><span>SMK King George V</span></div>
+                        <div class="logo-item"><img src="yayasang2r.jpeg" alt=""><span>Yayasan G2R</span></div>
+                        <div class="logo-item"><img src="gentingplantations.jpeg" alt=""><span>Genting
+                                Plantations</span></div>
+                        <div class="logo-item"><img src="mhc.jpeg" alt=""><span>MHC Kedah</span></div>
+                        <div class="logo-item"><img src="usm.jpeg" alt=""><span>Universiti Sains Malaysia</span></div>
+                        <div class="logo-item"><img src="ucmi.jpeg" alt=""><span>University College of MAIWP
+                                International</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="design" class="py-24 px-6 max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold mb-12 reveal">Sublimation <span class="gradient-text">Mastery</span></h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- ================= CONTACT ================= -->
+    <footer id="contact">
+        <div class="wrap">
+            <p class="eyebrow" data-reveal>05 &nbsp;/&nbsp; Contact</p>
 
-            <div class="glass overflow-hidden rounded-[2rem] group reveal">
-                <div class="h-80 bg-gray-900 relative">
-                    <img src="design01.jpg" alt="Jersey Design 01"
-                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    <div
-                        class="absolute inset-0 bg-black/40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <p class="font-bold tracking-widest text-white">CUSTOM DESIGN 01</p>
-                    </div>
-                </div>
-            </div>
+            <h2 class="contact-title split" data-split style="margin-top:26px">
+                <span class="line"><i>Let's</i></span>
+                <span class="line"><i class="thin">Build.</i></span>
+            </h2>
 
-            <div class="glass overflow-hidden rounded-[2rem] group reveal">
-                <div class="h-80 bg-gray-900 relative">
-                    <img src="design02.jpg" alt="Jersey Design 02"
-                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    <div
-                        class="absolute inset-0 bg-black/40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <p class="font-bold tracking-widest text-white">CUSTOM DESIGN 02</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="glass overflow-hidden rounded-[2rem] group reveal">
-                <div class="h-80 bg-gray-900 relative">
-                    <img src="design03.jpg" alt="Jersey Design 03"
-                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    <div
-                        class="absolute inset-0 bg-black/40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <p class="font-bold tracking-widest text-white">CUSTOM DESIGN 03</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="flex justify-center mt-12 reveal">
-            <a href="https://t.me/blankscatalog" target="_blank" rel="noopener noreferrer"
-                class="btn-glow px-10 py-4 liquid-glass border border-slate-500/30 rounded-full font-bold transition-transform hover:scale-105 duration-300 flex items-center gap-3">
-                <i class="fab fa-telegram text-xl text-slate-400"></i>
-                View More / Catalog
+            <a class="mail-link" href="mailto:muhdizwn01@gmail.com" data-reveal>
+                muhdizwn01@gmail.com <i class="fas fa-arrow-right"></i>
             </a>
-        </div>
 
-        <div class="mt-24 reveal relative group">
-            <p class="text-center text-gray-500 uppercase tracking-[0.3em] text-xs mb-10">Trusted by Institutions &
-                Brands</p>
-
-            <div
-                class="absolute left-4 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                <i class="fas fa-chevron-left text-slate-400 text-2xl"></i>
-
-            </div>
-            <div
-                class="absolute right-4 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                <i class="fas fa-chevron-right text-slate-400 text-2xl"></i>
-
+            <div class="socials" data-reveal style="--d:120ms">
+                <a href="https://www.linkedin.com/in/muhd-izwan-2a3b36317/" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/muhdizwan04" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/muhdizwn__?igsh=em9jZjh5YnBzcW16&utm_source=qr" target="_blank"
+                    rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/blankscatalog" target="_blank" rel="noopener noreferrer"
+                    aria-label="Telegram"><i class="fab fa-telegram"></i></a>
             </div>
 
-            <div
-                class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none">
+            <div class="foot-bar">
+                <span>© 2026 Muhammad Izwan Bin Hamdan</span>
+                <span>AI Student · Designer · Developer</span>
             </div>
-            <div
-                class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none">
-            </div>
-
-            <div class="overflow-hidden">
-                <div class="flex logo-track">
-                    <div class="flex items-center gap-8 logo-group">
-                        <div class="logo-item"><img src="utem.png" alt="UTEM"><span>Universiti Teknikal Malaysia
-                                Melaka</span></div>
-                        <div class="logo-item"><img src="uitm.jpeg" alt="UiTM"><span>Universiti Teknologi MARA</span>
-                        </div>
-                        <div class="logo-item"><img src="kgv.jpeg" alt="SMK KGV"><span>SMK King George V</span></div>
-                        <div class="logo-item"><img src="yayasang2r.jpeg" alt="G2R"><span>Yayasan G2R</span></div>
-                        <div class="logo-item"><img src="gentingplantations.jpeg" alt="Genting"><span>Genting
-                                Plantations</span></div>
-                        <div class="logo-item"><img src="mhc.jpeg" alt="MHC"><span>MHC KEDAH</span></div>
-                        <div class="logo-item"><img src="usm.jpeg" alt="USM"><span>Univeristi Sains Malaysia</span>
-                        </div>
-                        <div class="logo-item"><img src="ucmi.jpeg" alt="UCMI"><span>University College of MAIWP
-                                International</span></div>
-                    </div>
-                    <div class="flex items-center gap-8 logo-group">
-                        <div class="logo-item"><img src="utem.png" alt="UTEM"><span>Universiti Teknikal Malaysia
-                                Melaka</span></div>
-                        <div class="logo-item"><img src="uitm.jpeg" alt="UiTM"><span>Universiti Teknologi MARA</span>
-                        </div>
-                        <div class="logo-item"><img src="kgv.jpeg" alt="SMK KGV"><span>SMK King George V</span></div>
-                        <div class="logo-item"><img src="yayasang2r.jpeg" alt="G2R"><span>Yayasan G2R</span></div>
-                        <div class="logo-item"><img src="gentingplantations.jpeg" alt="Genting"><span>Genting
-                                Plantations</span></div>
-                        <div class="logo-item"><img src="mhc.jpeg" alt="MHC"><span>MHC KEDAH</span></div>
-                        <div class="logo-item"><img src="usm.jpeg" alt="USM"><span>Univeristi Sains Malaysia</span>
-                        </div>
-                        <div class="logo-item"><img src="ucmi.jpeg" alt="UCMI"><span>University College of MAIWP
-                                International</span></div>
-                    </div>
-                </div>
-            </div>
-    </section>
-
-    <!-- foother oshkuuu-->
-
-    <footer id="contact" class="py-24 text-center glass border-0 rounded-t-[4rem]">
-        <div class="reveal">
-            <h2 class="text-5xl font-black mb-6 italic">IZWAN HAMDAN</h2>
-            <p class="text-gray-400 mb-10 tracking-[0.2em] text-sm">AI STUDENT • DESIGNER • DEVELOPER</p>
-            <div class="flex justify-center gap-8 mb-12">
-                <a href="https://www.linkedin.com/in/muhd-izwan-2a3b36317/"
-                    class="text-3xl hover:text-slate-400 transition"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/muhdizwan04" class="text-3xl hover:text-slate-400 transition"><i
-                        class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/muhdizwn__?igsh=em9jZjh5YnBzcW16&utm_source=qr"
-                    class="text-3xl hover:text-slate-400 transition"><i class="fab fa-instagram"></i></a>
-
-            </div>
-            <a href="mailto:[muhdizwn01@gmail.com]"
-                class="px-12 py-5 bg-white text-black font-black rounded-full hover:shadow-[0_0_30px_white] transition uppercase tracking-widest">Connect
-                With Me</a>
-            <p class="mt-20 text-xs text-gray-600 uppercase tracking-widest">© 2025 Muhammad Izwan Bin Hamdan</p>
         </div>
     </footer>
 
-    <!-- preview gambar when click button-->
-
-    <div id="imageModal"
-        class="fixed inset-0 z-[100] hidden bg-black/90 flex-col items-center justify-center p-4 backdrop-blur-md">
-        <button onclick="closeModal()"
-            class="absolute top-10 right-10 text-white text-4xl hover:text-slate-400 transition">
-
-            <i class="fas fa-times"></i>
-        </button>
-
-        <p class="mt-8 text-slate-400 font-mono tracking-widest uppercase">Admin PPAS Interface Preview</p>
-
-
-        <div class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-            <img src="sswebsiteppas01.png" class="rounded-2xl border border-white/10 shadow-2xl"
-                alt="Dashboard Screenshot 1">
-            <img src="sswebsiteppas03.png" class="rounded-2xl border border-white/10 shadow-2xl"
-                alt="Dashboard Screenshot 2">
-            <img src="sswebsiteppas02.png" class="rounded-2xl border border-white/10 shadow-2xl"
-                alt="Dashboard Screenshot 1">
-
+    <!-- ================= MODAL ================= -->
+    <div id="imageModal" role="dialog" aria-modal="true" aria-label="Admin PPAS interface preview">
+        <button class="modal-close" onclick="closeModal()" aria-label="Close"><i class="fas fa-times"></i></button>
+        <div class="modal-inner">
+            <h4>Admin PPAS — Interface Preview</h4>
+            <div class="shots">
+                <img src="sswebsiteppas01.png" alt="Admin PPAS dashboard screenshot 1">
+                <img src="sswebsiteppas03.png" alt="Admin PPAS dashboard screenshot 2">
+                <img src="sswebsiteppas02.png" alt="Admin PPAS dashboard screenshot 3">
+            </div>
         </div>
-
     </div>
 
 </body>
