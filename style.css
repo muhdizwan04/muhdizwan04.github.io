@@ -632,6 +632,18 @@ section { position: relative; }
     padding-left: 6px;
 }
 
+/* chips that are real links get a hover state */
+.stack-chips a {
+    color: inherit;
+    text-decoration: none;
+    transition: color .3s ease, transform .3s ease;
+}
+
+.stack-chips a:hover {
+    color: #fff;
+    transform: translateY(-2px);
+}
+
 /* ---------- AIZZTECH ---------- */
 .venture-head {
     border: 1px solid var(--line);
