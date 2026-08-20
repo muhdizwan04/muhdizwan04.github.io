@@ -1207,6 +1207,14 @@ section { position: relative; }
     border-color: #fff;
 }
 
+/* the in-progress entry sits filled, so "now" reads at a glance */
+.tl li.tl-now::before {
+    background: #fff;
+    border-color: #fff;
+}
+
+.tl li.tl-now .tl-when { color: #fff; }
+
 .tl-when {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
