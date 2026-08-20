@@ -56,7 +56,25 @@
     var progress = document.getElementById('progress');
     var nav = document.getElementById('nav');
     var heroImg = document.getElementById('heroImg');
-    var stackItems = Array.prototype.slice.call(document.querySelectorAll('.stack-item'));
+    /* Every group of sticky cards that should recede as the next one covers it.
+       Work cards wrap their card in .stack-item; timeline entries are the card. */
+    var stacks = [];
+
+    document.querySelectorAll('.stack').forEach(function (group) {
+        stacks.push({
+            items: Array.prototype.slice.call(group.querySelectorAll('.stack-item')),
+            inner: true,
+            pin: 110
+        });
+    });
+
+    document.querySelectorAll('.tl-stack').forEach(function (group) {
+        stacks.push({
+            items: Array.prototype.slice.call(group.children),
+            inner: false,
+            pin: 108
+        });
+    });
     var ticking = false;
 
     function onScroll() {
@@ -77,31 +95,31 @@
         ticking = false;
     }
 
-    /* Stacked work cards: as the next card slides up over the pinned one,
-       push the pinned card back in Z so the deck reads as a physical stack. */
+    /* As the next card slides up over the pinned one, push the pinned card
+       back in Z so the deck reads as a physical stack. */
     function depthStack() {
         if (!isDesktop()) return;
 
-        var pin = 110; // matches the sticky offset in CSS
+        stacks.forEach(function (stack) {
+            stack.items.forEach(function (item, i) {
+                var card = stack.inner ? item.firstElementChild : item;
+                var next = stack.items[i + 1];
+                if (!card) return;
 
-        stackItems.forEach(function (item, i) {
-            var card = item.firstElementChild;
-            var next = stackItems[i + 1];
-            if (!card) return;
+                if (!next) {
+                    card.style.transform = '';
+                    card.style.opacity = '';
+                    return;
+                }
 
-            if (!next) {
-                card.style.transform = '';
-                card.style.opacity = '';
-                return;
-            }
+                var nextTop = next.getBoundingClientRect().top;
+                var span = window.innerHeight - stack.pin;
+                var t = 1 - (nextTop - stack.pin) / span;
+                t = Math.max(0, Math.min(1, t));
 
-            var nextTop = next.getBoundingClientRect().top;
-            var span = window.innerHeight - pin;
-            var t = 1 - (nextTop - pin) / span;
-            t = Math.max(0, Math.min(1, t));
-
-            card.style.transform = 'scale(' + (1 - t * 0.055).toFixed(4) + ')';
-            card.style.opacity = (1 - t * 0.4).toFixed(3);
+                card.style.transform = 'scale(' + (1 - t * 0.05).toFixed(4) + ')';
+                card.style.opacity = (1 - t * 0.38).toFixed(3);
+            });
         });
     }
 

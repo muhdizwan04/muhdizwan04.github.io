@@ -1109,6 +1109,7 @@ section { position: relative; }
     .nav-toggle { display: block; }
     nav { background: rgba(0, 0, 0, .82); backdrop-filter: blur(18px); height: 68px; }
     .stack-item { position: relative; top: auto; }
+    .tl-stack li { position: relative; top: auto; }
     .sticky-col { position: relative; top: auto; }
     .scroll-hint { display: none; }
     .sec { padding: 88px 0; }
@@ -1166,18 +1167,18 @@ section { position: relative; }
 
 /* ---------- Education / experience timelines ---------- */
 .tl-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 56px;
+    display: block;
     margin-top: 88px;
     padding-top: 56px;
     border-top: 1px solid var(--line);
 }
 
+.tl-block + .tl-block { margin-top: 96px; }
+
 .tl {
     list-style: none;
     margin: 0;
-    padding: 0 0 0 26px;
+    padding: 0 0 0 40px;
     border-left: 1px solid var(--line);
 }
 
@@ -1187,6 +1188,30 @@ section { position: relative; }
 }
 
 .tl li:last-child { padding-bottom: 0; }
+
+/* ---------- Stacked timeline cards ----------
+   Same pin-and-overlap behaviour as the work cards, but each entry keeps
+   its node on the rail so the journey still reads as a timeline. */
+.tl-stack li {
+    position: sticky;
+    top: calc(var(--nav-h) + 24px + var(--i, 0) * 8px);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 30px 34px;
+    margin-bottom: 16px;
+    padding-bottom: 30px;
+    transform-origin: top center;
+}
+
+.tl-stack li:last-child { padding-bottom: 30px; margin-bottom: 0; }
+
+/* node hangs outside the card, onto the rail */
+.tl-stack li::before {
+    left: -45px;
+    top: 36px;
+}
+
+.tl-stack li:hover { border-color: var(--line-strong); }
 
 /* the node on the rule */
 .tl li::before {
@@ -1241,5 +1266,28 @@ section { position: relative; }
 }
 
 @media (min-width: 768px) {
-    .tl-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
+    /* date in its own column so the card uses its full width */
+    .tl-stack li {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        column-gap: 36px;
+        padding: 36px 44px;
+    }
+
+    .tl-stack li > .tl-when { grid-column: 1; grid-row: 1; margin-bottom: 0; padding-top: 4px; }
+    .tl-stack li > h5 { grid-column: 2; grid-row: 1; }
+    .tl-stack li > p { grid-column: 2; grid-row: 2; max-width: 68ch; }
+
+    .tl h5 { font-size: 20px; }
+}
+
+/* ---------- Mobile: no pinning, timelines read as a plain list ----------
+   Declared last so it beats the .tl-stack rules above it. */
+@media (max-width: 900px) {
+    .tl-stack li {
+        position: relative;
+        top: auto;
+        transform: none !important;
+        opacity: 1 !important;
+    }
 }
