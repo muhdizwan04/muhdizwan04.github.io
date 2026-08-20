@@ -8,8 +8,8 @@
     <meta name="description"
         content="Muhammad Izwan Bin Hamdan — AI student, iOS developer and designer. Co-founder of AIZZTECH, makers of Rencana and Belanje.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=2.3">
-    <script src="script.js?v=2.1" defer></script>
+    <link rel="stylesheet" href="style.css?v=2.4">
+    <script src="script.js?v=2.4" defer></script>
 </head>
 
 <body>
@@ -23,8 +23,8 @@
             <div class="nav-links" id="navLinks">
                 <button data-nav="home" onclick="scrollToSection('home')">Home</button>
                 <button data-nav="story" onclick="scrollToSection('story')">Story</button>
-                <button data-nav="work" onclick="scrollToSection('work')">Work</button>
                 <button data-nav="aizztech" onclick="scrollToSection('aizztech')">AIZZTECH</button>
+                <button data-nav="work" onclick="scrollToSection('work')">Work</button>
                 <button data-nav="jersey" onclick="scrollToSection('jersey')">Jersey Biz</button>
                 <button class="nav-cta" data-nav="contact" onclick="scrollToSection('contact')">Hire Me</button>
             </div>
@@ -67,11 +67,11 @@
                 </div>
 
                 <div class="btn-row" style="margin-top:40px">
-                    <button class="btn" data-reveal style="--d:380ms" onclick="scrollToSection('work')">
-                        See the work <i class="fas fa-arrow-down"></i>
+                    <button class="btn" data-reveal style="--d:380ms" onclick="scrollToSection('aizztech')">
+                        AIZZTECH apps <i class="fas fa-arrow-down"></i>
                     </button>
                     <button class="btn btn-ghost" data-reveal style="--d:440ms"
-                        onclick="scrollToSection('aizztech')">AIZZTECH apps</button>
+                        onclick="scrollToSection('work')">See the work</button>
                 </div>
             </div>
         </div>
@@ -154,97 +154,11 @@
     </section>
 
     <!-- ================= WORK (stacked scroll cards) ================= -->
-    <section id="work" class="sec">
-        <div class="wrap">
-            <div class="sec-head">
-                <div>
-                    <p class="eyebrow" data-reveal>02 &nbsp;/&nbsp; Work</p>
-                    <h2 class="sec-title split" data-split style="margin-top:22px">
-                        <span class="line"><i>Digital</i></span>
-                        <span class="line"><i class="thin">Ecosystem</i></span>
-                    </h2>
-                </div>
-                <p class="sec-lede" data-reveal style="--d:140ms">Full-stack solutions from mobile to web
-                    administration — shipped, maintained, and used by real people.</p>
-            </div>
-
-            <div class="stack">
-
-                <div class="stack-item">
-                    <article class="card" data-reveal>
-                        <div>
-                            <p class="card-num">01 / Mobile</p>
-                            <div class="card-tile" style="margin-top:18px"><i class="fab fa-apple"></i></div>
-                        </div>
-                        <div>
-                            <span class="tag">Mobile Innovation</span>
-                            <h3>PPAS</h3>
-                            <p>Successfully launched on the Apple App Store. This project solidified my skills in mobile
-                                architecture and user experience design, and earned my STDC Apple Developer
-                                certification.</p>
-                            <div class="btn-row">
-                                <a class="btn" href="https://apps.apple.com/my/app/ppas/id6752301341" target="_blank"
-                                    rel="noopener noreferrer">View on App Store <i
-                                        class="fas fa-arrow-up-right-from-square" style="font-size:11px"></i></a>
-                                <div class="stack-chips"><i class="fas fa-mobile-screen-button" title="Swift"></i><i
-                                        class="fab fa-apple" title="iOS"></i></div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="stack-item">
-                    <article class="card" data-reveal>
-                        <div>
-                            <p class="card-num">02 / Web</p>
-                            <div class="card-tile" style="margin-top:18px"><i class="fas fa-user-shield"></i></div>
-                        </div>
-                        <div>
-                            <span class="tag">App Management</span>
-                            <h3>Admin PPAS</h3>
-                            <p>A dedicated web-based control center built to manage the PPAS ecosystem. Real-time data
-                                synchronisation, user role management, and an interface a non-technical administrator
-                                can actually operate.</p>
-                            <div class="btn-row">
-                                <button class="btn" onclick="openModal()">See some images</button>
-                                <button class="btn btn-ghost" disabled style="opacity:.55;cursor:default">Internal
-                                    access only</button>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="stack-item">
-                    <article class="card" data-reveal>
-                        <div>
-                            <p class="card-num">03 / Commerce</p>
-                            <div class="card-tile" style="margin-top:18px"><i class="fas fa-shopping-bag"></i></div>
-                        </div>
-                        <div>
-                            <span class="tag">E-Commerce System</span>
-                            <h3>E-commerserve</h3>
-                            <p>A full-stack eCommerce website handling digital transactions, inventory displays and
-                                customer orders — built around high performance and a secure database architecture.</p>
-                            <div class="btn-row">
-                                <button class="btn">Launch site</button>
-                                <div class="stack-chips"><i class="fab fa-php" title="PHP"></i><i
-                                        class="fas fa-database" title="MySQL"></i><i class="fab fa-js"
-                                        title="JavaScript"></i></div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= AIZZTECH ================= -->
     <section id="aizztech" class="sec">
         <div class="wrap">
             <div class="sec-head">
                 <div>
-                    <p class="eyebrow" data-reveal>03 &nbsp;/&nbsp; Venture</p>
+                    <p class="eyebrow" data-reveal>02 &nbsp;/&nbsp; Venture</p>
                     <h2 class="sec-title split" data-split style="margin-top:22px">
                         <span class="line"><i>The</i></span>
                         <span class="line"><i class="thin">Studio</i></span>
@@ -324,16 +238,13 @@
                         <a class="btn" href="https://www.rencana.com.my/" target="_blank"
                             rel="noopener noreferrer">Open the web app <i class="fas fa-arrow-up-right-from-square"
                                 style="font-size:11px"></i></a>
+                        <a class="btn btn-ghost" href="https://apps.apple.com/my/app/rencana/id6762103809?l=ms"
+                            target="_blank" rel="noopener noreferrer">iOS <i class="fab fa-apple"></i></a>
+                        <a class="btn btn-ghost"
+                            href="https://play.google.com/store/apps/details?id=com.aizztech.rencana&amp;hl=ms"
+                            target="_blank" rel="noopener noreferrer">Android <i class="fab fa-google-play"></i></a>
                         <a class="btn btn-ghost" href="https://aizztech.com/rencana/" target="_blank"
                             rel="noopener noreferrer">Overview</a>
-                        <div class="stack-chips">
-                            <a href="https://apps.apple.com/my/app/rencana/id6762103809" target="_blank"
-                                rel="noopener noreferrer" aria-label="Rencana on the App Store"><i
-                                    class="fab fa-app-store-ios" title="App Store"></i></a>
-                            <a href="https://play.google.com/store/apps/details?id=com.aizztech.rencana"
-                                target="_blank" rel="noopener noreferrer" aria-label="Rencana on Google Play"><i
-                                    class="fab fa-google-play" title="Google Play"></i></a>
-                        </div>
                     </div>
                 </article>
 
@@ -361,6 +272,7 @@
                     </ul>
 
                     <div class="app-meta">
+                        <span class="pill">iOS · Android</span>
                         <span class="pill">Finance</span>
                         <span class="pill">Malaysia · LHDN ready</span>
                         <span class="pill">Personal + Business</span>
@@ -368,13 +280,80 @@
                     </div>
 
                     <div class="btn-row">
-                        <a class="btn" href="https://aizztech.com/belanje/" target="_blank"
-                            rel="noopener noreferrer">Explore Belanje <i class="fas fa-arrow-up-right-from-square"
-                                style="font-size:11px"></i></a>
-                        <div class="stack-chips"><i class="fas fa-receipt" title="Receipt OCR"></i><i
-                                class="fas fa-lock" title="Encrypted"></i></div>
+                        <a class="btn" href="https://apps.apple.com/my/app/belanje/id6784363676" target="_blank"
+                            rel="noopener noreferrer">Download for iOS <i class="fab fa-apple"></i></a>
+                        <a class="btn btn-ghost"
+                            href="https://play.google.com/store/apps/details?id=com.aizztech.belanje&amp;hl=en"
+                            target="_blank" rel="noopener noreferrer">Android <i class="fab fa-google-play"></i></a>
+                        <a class="btn btn-ghost" href="https://aizztech.com/belanje/" target="_blank"
+                            rel="noopener noreferrer">Overview</a>
                     </div>
                 </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="sec">
+        <div class="wrap">
+            <div class="sec-head">
+                <div>
+                    <p class="eyebrow" data-reveal>03 &nbsp;/&nbsp; Work</p>
+                    <h2 class="sec-title split" data-split style="margin-top:22px">
+                        <span class="line"><i>Digital</i></span>
+                        <span class="line"><i class="thin">Ecosystem</i></span>
+                    </h2>
+                </div>
+                <p class="sec-lede" data-reveal style="--d:140ms">Full-stack solutions from mobile to web
+                    administration — shipped, maintained, and used by real people.</p>
+            </div>
+
+            <div class="stack">
+
+                <div class="stack-item">
+                    <article class="card" data-reveal>
+                        <div>
+                            <p class="card-num">01 / Mobile</p>
+                            <div class="card-tile" style="margin-top:18px"><i class="fab fa-apple"></i></div>
+                        </div>
+                        <div>
+                            <span class="tag">Mobile Innovation</span>
+                            <h3>PPAS</h3>
+                            <p>Successfully launched on the Apple App Store. This project solidified my skills in mobile
+                                architecture and user experience design, and earned my STDC Apple Developer
+                                certification.</p>
+                            <div class="btn-row">
+                                <a class="btn" href="https://apps.apple.com/my/app/ppas/id6752301341" target="_blank"
+                                    rel="noopener noreferrer">View on App Store <i
+                                        class="fas fa-arrow-up-right-from-square" style="font-size:11px"></i></a>
+                                <div class="stack-chips"><i class="fas fa-mobile-screen-button" title="Swift"></i><i
+                                        class="fab fa-apple" title="iOS"></i></div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="stack-item">
+                    <article class="card" data-reveal>
+                        <div>
+                            <p class="card-num">02 / Web</p>
+                            <div class="card-tile" style="margin-top:18px"><i class="fas fa-user-shield"></i></div>
+                        </div>
+                        <div>
+                            <span class="tag">App Management</span>
+                            <h3>Admin PPAS</h3>
+                            <p>A dedicated web-based control center built to manage the PPAS ecosystem. Real-time data
+                                synchronisation, user role management, and an interface a non-technical administrator
+                                can actually operate.</p>
+                            <div class="btn-row">
+                                <button class="btn" onclick="openModal()">See some images</button>
+                                <button class="btn btn-ghost" disabled style="opacity:.55;cursor:default">Internal
+                                    access only</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
 
             </div>
         </div>

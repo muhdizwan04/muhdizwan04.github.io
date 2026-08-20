@@ -118,7 +118,7 @@
        4. Active nav link tracking
        --------------------------------------------------------- */
     var navButtons = document.querySelectorAll('[data-nav]');
-    var sections = ['home', 'story', 'work', 'aizztech', 'jersey', 'contact']
+    var sections = ['home', 'story', 'aizztech', 'work', 'jersey', 'contact']
         .map(function (id) { return document.getElementById(id); })
         .filter(Boolean);
 
