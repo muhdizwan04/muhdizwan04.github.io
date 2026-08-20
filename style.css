@@ -961,6 +961,9 @@ section { position: relative; }
 
 .mail-link:hover { border-color: #fff; gap: 26px; }
 
+/* stack multiple contact links instead of running them together */
+.mail-link { display: flex; width: fit-content; max-width: 100%; }
+
 .socials {
     display: flex;
     gap: 8px;
@@ -1132,4 +1135,103 @@ section { position: relative; }
     .portrait { max-width: 210px; }
 
     .hero-meta { gap: 22px; }
+}
+
+/* ---------- Capability / language tag lists ---------- */
+.tag-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag-list li {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    padding: 9px 14px;
+    border-radius: 999px;
+    transition: color .35s ease, border-color .35s ease;
+}
+
+.tag-list li:hover {
+    color: #fff;
+    border-color: var(--line-strong);
+}
+
+/* ---------- Education / experience timelines ---------- */
+.tl-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 56px;
+    margin-top: 88px;
+    padding-top: 56px;
+    border-top: 1px solid var(--line);
+}
+
+.tl {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 26px;
+    border-left: 1px solid var(--line);
+}
+
+.tl li {
+    position: relative;
+    padding-bottom: 34px;
+}
+
+.tl li:last-child { padding-bottom: 0; }
+
+/* the node on the rule */
+.tl li::before {
+    content: "";
+    position: absolute;
+    left: -31px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--line-strong);
+    transition: background .35s ease, border-color .35s ease;
+}
+
+.tl li:hover::before {
+    background: #fff;
+    border-color: #fff;
+}
+
+.tl-when {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--dim);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.tl h5 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px;
+    color: #fff;
+}
+
+.tl p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--muted);
+    max-width: 46ch;
+}
+
+@media (min-width: 768px) {
+    .tl-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
 }
