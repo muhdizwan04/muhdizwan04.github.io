@@ -473,42 +473,38 @@ section { position: relative; }
 
 .skills { margin-top: 8px; }
 
-.skill {
-    padding: 20px 0;
+/* ---------- Skills, stated as evidence rather than percentages ---------- */
+.proof { border-top: 1px solid var(--line); }
+
+.proof-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 22px 0;
     border-bottom: 1px solid var(--line);
 }
 
-.skill:first-child { border-top: 1px solid var(--line); }
-
-.skill-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 14px;
+.proof-item h5 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #fff;
 }
 
-.skill-top span:first-child { font-size: 16px; font-weight: 500; }
-
-.skill-top span:last-child {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--dim);
+.proof-item p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--muted);
 }
 
-.bar {
-    height: 2px;
-    background: rgba(255, 255, 255, 0.12);
-    position: relative;
-    overflow: hidden;
-}
-
-.bar i {
-    position: absolute;
-    inset: 0 auto 0 0;
-    width: 0;
-    background: #fff;
-    transition: width 1.4s cubic-bezier(.22, 1, .36, 1);
-    transition-delay: var(--d, 0ms);
+@media (min-width: 768px) {
+    .proof-item {
+        grid-template-columns: 200px 1fr;
+        column-gap: 32px;
+        align-items: baseline;
+    }
 }
 
 /* ---------- Stacked work cards ---------- */

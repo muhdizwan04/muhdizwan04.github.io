@@ -29,12 +29,6 @@
         entries.forEach(function (entry) {
             if (!entry.isIntersecting) return;
             entry.target.classList.add('in');
-
-            // Fill any skill bars living inside this element
-            entry.target.querySelectorAll('[data-bar]').forEach(function (bar) {
-                bar.style.width = bar.getAttribute('data-bar') + '%';
-            });
-
             revealer.unobserve(entry.target);
         });
     }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
