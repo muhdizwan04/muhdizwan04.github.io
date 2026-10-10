@@ -1061,6 +1061,9 @@ section { position: relative; }
 @media (min-width: 768px) {
     .gal { grid-template-columns: repeat(3, 1fr); }
     .apps { grid-template-columns: repeat(2, 1fr); }
+    /* an odd last app takes the full row, its features split in two */
+    .app:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .app:last-child:nth-child(odd) .feat { display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; }
     .sec-head { grid-template-columns: 1.1fr 1fr; align-items: end; gap: 48px; }
     .card { grid-template-columns: 220px 1fr; gap: 44px; align-items: center; }
     .card-tile { max-width: none; }
