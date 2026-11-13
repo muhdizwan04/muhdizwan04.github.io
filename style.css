@@ -816,6 +816,13 @@ section { position: relative; }
 
 .app .btn-row { margin-top: auto; }
 
+/* primary action gets its own row; the rest split the row below evenly,
+   so the cards' button rows line up whatever the number of buttons */
+.app .btn-row .btn { justify-content: center; }
+.app .btn-row .btn:not(.btn-ghost) { flex: 1 1 100%; }
+.app .btn-row .btn-ghost { flex: 1 1 0; min-width: max-content; padding-left: 20px; padding-right: 20px; }
+.app:last-child:nth-child(odd) .btn-row { max-width: 560px; }
+
 /* ---------- Jersey ---------- */
 .gal {
     display: grid;
@@ -1315,6 +1322,168 @@ section { position: relative; }
     .tl-stack li > p { grid-column: 2; grid-row: 2; max-width: 68ch; }
 
     .tl h5 { font-size: 20px; }
+
+    /* a third column for the entry's photo */
+    .tl-stack li:has(.tl-pic) { grid-template-columns: 200px 1fr 220px; }
+    .tl-stack li > .tl-pic { grid-column: 3; grid-row: 1 / span 2; align-self: center; margin-top: 0; }
+}
+
+/* ---------- Timeline photos ----------
+   Muted and slightly tilted at rest; on hover they come to full colour,
+   and a pair fans apart like two prints pulled off a pile. */
+.tl-pic {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    margin-top: 20px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+    isolation: isolate;
+    /* --covered is set by the stacking script as the next card slides over */
+    opacity: clamp(0, calc((0.85 - var(--covered, 0)) * 3), 1);
+    transition: opacity .2s linear;
+}
+
+.tl-pic img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--line-strong);
+    background: #0d0d0d;
+    filter: grayscale(0.85) brightness(0.72);
+    transform: rotate(-2deg) scale(0.94);
+    box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.9);
+    transition: transform .7s cubic-bezier(.2, .8, .2, 1), filter .5s ease, border-color .4s ease;
+}
+
+.tl-pic img.fit { object-fit: contain; padding: 6px; }
+.tl-pic img.top { object-position: top; }
+
+.tl-pic img:first-of-type { z-index: 2; }
+.tl-pic-2 img:nth-of-type(2) { z-index: 1; transform: rotate(5deg) translate(10px, 4px) scale(0.88); }
+
+/* hover only on devices that really hover, so a tap on a phone doesn't leave it stuck */
+@media (hover: hover) and (min-width: 768px) {
+    .tl-stack li:hover .tl-pic img,
+    .tl-pic:focus-visible img {
+        filter: none;
+        border-color: rgba(255, 255, 255, 0.4);
+        transform: rotate(0deg) scale(1);
+    }
+
+    .tl-stack li:hover .tl-pic-2 img:first-of-type,
+    .tl-pic-2:focus-visible img:first-of-type { transform: rotate(-5deg) translateX(-16px) scale(0.96); }
+
+    .tl-stack li:hover .tl-pic-2 img:nth-of-type(2),
+    .tl-pic-2:focus-visible img:nth-of-type(2) { transform: rotate(7deg) translate(22px, 6px) scale(0.92); }
+}
+
+.tl-pic:focus-visible { outline: 1px solid #fff; outline-offset: 6px; border-radius: 6px; }
+
+.tl-pic-n {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    z-index: 3;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #000;
+    background: #fff;
+    padding: 5px 8px;
+    border-radius: 999px;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .4s ease, transform .4s ease;
+}
+
+@media (hover: hover) and (min-width: 768px) {
+    .tl-stack li:hover .tl-pic-n { opacity: 1; transform: none; }
+}
+
+.tl-pic:focus-visible .tl-pic-n { opacity: 1; transform: none; }
+
+@media (max-width: 767px) {
+    .tl-pic { aspect-ratio: 16 / 10; }
+    .tl-pic img { filter: none; transform: none; }
+    .tl-pic-2 img:nth-of-type(2) { display: none; }
+    .tl-pic-n { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tl-pic img, .tl-pic-n { transition: none; }
+}
+
+/* ---------- Timeline lightbox ---------- */
+.lb {
+    position: fixed;
+    inset: 0;
+    z-index: 210;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 70px 24px 40px;
+    background: rgba(0, 0, 0, 0.94);
+    backdrop-filter: blur(14px);
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+.lb[hidden] { display: none; }
+.lb.open { opacity: 1; }
+
+.lb-fig { margin: 0; display: grid; justify-items: center; gap: 14px; min-width: 0; }
+
+.lb-fig img {
+    max-width: 100%;
+    max-height: calc(100vh - 170px);
+    object-fit: contain;
+    border-radius: 6px;
+    transform: scale(.97);
+    transition: transform .45s cubic-bezier(.2, .8, .2, 1);
+}
+
+.lb.open .lb-fig img { transform: none; }
+
+.lb-fig figcaption {
+    display: flex;
+    gap: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+}
+
+.lb-close, .lb-nav {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid var(--line-strong);
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: background .3s ease, color .3s ease;
+}
+
+.lb-close:hover, .lb-nav:hover { background: #fff; color: #000; }
+.lb-close { position: absolute; top: 18px; right: 22px; }
+.lb-nav[hidden] { visibility: hidden; display: block; }
+
+@media (max-width: 600px) {
+    .lb { grid-template-columns: 1fr; padding: 70px 16px 30px; }
+    .lb-nav { position: absolute; bottom: 20px; }
+    .lb-prev { left: 16px; }
+    .lb-next { right: 16px; }
 }
 
 /* ---------- Mobile: no pinning, timelines read as a plain list ----------
@@ -1326,6 +1495,8 @@ section { position: relative; }
         transform: none !important;
         opacity: 1 !important;
     }
+    /* no stacking here, so photos are never faded by it */
+    .tl-stack .tl-pic { opacity: 1 !important; }
 }
 
 @media (max-width: 900px) {

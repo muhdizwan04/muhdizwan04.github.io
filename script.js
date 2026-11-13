@@ -103,6 +103,7 @@
                 if (!next) {
                     card.style.transform = '';
                     card.style.opacity = '';
+                    card.style.removeProperty('--covered');
                     return;
                 }
 
@@ -113,6 +114,9 @@
 
                 card.style.transform = 'scale(' + (1 - t * 0.05).toFixed(4) + ')';
                 card.style.opacity = (1 - t * 0.38).toFixed(3);
+                // photos fade out faster than the card, so a covered card's
+                // photo never shows through the semi-transparent one on top
+                card.style.setProperty('--covered', t.toFixed(3));
             });
         });
     }
@@ -191,7 +195,67 @@
     });
 
     /* ---------------------------------------------------------
-       7. Kick off
+       7. Timeline photo lightbox
+       --------------------------------------------------------- */
+    var lb = document.getElementById('tlLightbox');
+    var lbImg = lb.querySelector('.lb-fig img');
+    var lbTitle = lb.querySelector('.lb-title');
+    var lbCount = lb.querySelector('.lb-count');
+    var lbPrev = lb.querySelector('.lb-prev');
+    var lbNext = lb.querySelector('.lb-next');
+    var lbPhotos = [];
+    var lbIndex = 0;
+    var lbOpener = null;
+
+    function lbShow(i) {
+        lbIndex = (i + lbPhotos.length) % lbPhotos.length;
+        lbImg.src = lbPhotos[lbIndex].src;
+        lbImg.alt = lbPhotos[lbIndex].alt;
+        lbCount.textContent = lbPhotos.length > 1 ? (lbIndex + 1) + ' / ' + lbPhotos.length : '';
+    }
+
+    function lbOpen(btn) {
+        lbOpener = btn;
+        lbPhotos = Array.prototype.map.call(btn.querySelectorAll('img'), function (img, i) {
+            return { src: img.getAttribute('src'), alt: img.alt || btn.querySelectorAll('img')[0].alt + ' (' + (i + 1) + ')' };
+        });
+        lbTitle.textContent = btn.closest('li').querySelector('h5').textContent;
+        lbPrev.hidden = lbNext.hidden = lbPhotos.length < 2;
+        lbShow(0);
+        lb.hidden = false;
+        document.body.style.overflow = 'hidden';
+        requestAnimationFrame(function () { lb.classList.add('open'); });
+        lb.querySelector('.lb-close').focus();
+    }
+
+    function lbClose() {
+        if (lb.hidden) return;
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+        setTimeout(function () { lb.hidden = true; }, 350);
+        if (lbOpener) lbOpener.focus();
+    }
+
+    document.querySelectorAll('.tl-pic').forEach(function (btn) {
+        btn.addEventListener('click', function () { lbOpen(btn); });
+    });
+
+    lb.querySelector('.lb-close').addEventListener('click', lbClose);
+    lbPrev.addEventListener('click', function () { lbShow(lbIndex - 1); });
+    lbNext.addEventListener('click', function () { lbShow(lbIndex + 1); });
+    lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target.classList.contains('lb-fig')) lbClose();
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (lb.hidden) return;
+        if (e.key === 'Escape') lbClose();
+        else if (e.key === 'ArrowRight' && lbPhotos.length > 1) lbShow(lbIndex + 1);
+        else if (e.key === 'ArrowLeft' && lbPhotos.length > 1) lbShow(lbIndex - 1);
+    });
+
+    /* ---------------------------------------------------------
+       8. Kick off
        --------------------------------------------------------- */
     onScroll();
 })();
